@@ -1,0 +1,17 @@
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\DAL.deps.json
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\DAL.runtimeconfig.json
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\DAL.dll
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\DAL.pdb
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\Entity.dll
+C:\Users\NURGÜL\CuzdanApp\DAL\bin\Debug\net9.0\Entity.pdb
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.csproj.AssemblyReference.cache
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.AssemblyInfoInputs.cache
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.AssemblyInfo.cs
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.csproj.Up2Date
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.dll
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\refint\DAL.dll
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.pdb
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.genruntimeconfig.cache
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\ref\DAL.dll

@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BusinessLogic",
+    "\\DAL",
+    "\\Entity",
+    "\\Entity\\DTO",
+    "\\UI"
+  ],
+  "PreviewInSolutionExplorer": false
+}
