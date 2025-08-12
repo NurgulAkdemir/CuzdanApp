@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\BusinessLogic",
+    "\\BusinessLogic\\Services",
     "\\DAL",
     "\\Entity",
     "\\Entity\\DTO",
     "\\UI"
   ],
+  "SelectedNode": "\\CuzdanApp.sln",
   "PreviewInSolutionExplorer": false
 }

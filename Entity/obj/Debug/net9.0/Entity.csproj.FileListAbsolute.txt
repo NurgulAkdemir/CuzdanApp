@@ -9,3 +9,4 @@ C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.dll
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\refint\Entity.dll
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.pdb
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\ref\Entity.dll
+C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.sourcelink.json

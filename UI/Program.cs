@@ -1,4 +1,5 @@
 using DAL.Context;
+using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 // DbContext ekleme
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// generic repository
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+// özel repository
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 // MVC veya API için
 builder.Services.AddControllersWithViews();
