@@ -1,3 +1,4 @@
+using BusinessLogic.Services;
 using DAL.Context;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,14 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 // özel repository
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// DAL repository'leri (zaten eklediysek atlama)
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// BusinessLogic
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 
 // MVC veya API için

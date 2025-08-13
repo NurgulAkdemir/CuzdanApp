@@ -1,5 +1,6 @@
 ﻿using Entity.DTO;
 using System.Threading.Tasks;
+using Entity;
 
 namespace BusinessLogic.Services
 {

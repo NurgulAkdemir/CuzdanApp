@@ -15,3 +15,4 @@ C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\refint\DAL.dll
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.pdb
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.genruntimeconfig.cache
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\ref\DAL.dll
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.sourcelink.json

@@ -97,9 +97,9 @@ namespace BusinessLogic.Services
                 user.Email = dto.Email;
             }
 
-            if (!string.IsNullOrWhiteSpace(dto.Password))
+            if (!string.IsNullOrWhiteSpace(dto.PasswordHash))
             {
-                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
             }
 
             await _userRepository.UpdateAsync(user);
