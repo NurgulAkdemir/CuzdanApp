@@ -4,10 +4,14 @@ namespace Entity.DTO
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public decimal Amount { get; set; }
-        public int InstallmentNumber { get; set; } // Taksit numarasý
-        public DateTime DueDate { get; set; } // Vade tarihi
-        public bool IsPaid { get; set; } // Ödeme durumu
-        public DateTime? PaymentDate { get; set; } // Ödeme tarihi (eðer ödenmiþse)
+        public decimal OriginalAmount { get; set; }
+        public decimal InterestRate { get; set; }
+        public int TotalInstallments { get; set; }
+        public int RemainingInstallments { get; set; }
+        public decimal PerInstallmentAmount { get; set; }
+        public decimal TotalAmount { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? NextPaymentDate { get; set; }
+        public bool IsActive { get; set; }
     }
 }

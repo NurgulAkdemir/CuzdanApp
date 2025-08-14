@@ -19,7 +19,7 @@ namespace BusinessLogic.Services
         {
             // 1. Basit validasyon
             if (string.IsNullOrWhiteSpace(dto.Email)) throw new ArgumentException("Email boş olamaz.");
-            if (string.IsNullOrWhiteSpace(dto.Password)) throw new ArgumentException("Şifre boş olamaz.");
+            if (string.IsNullOrWhiteSpace(dto.PasswordHash)) throw new ArgumentException("Şifre boş olamaz.");
 
             // 2. Var mı kontrol et (unique email)
             var existing = await _userRepository.GetByEmailAsync(dto.Email);
@@ -27,14 +27,14 @@ namespace BusinessLogic.Services
                 throw new InvalidOperationException("Bu e-posta ile kayıtlı bir kullanıcı zaten var.");
 
             // 3. Parola hash'le
-            string hashed = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            string hashed = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
 
             // 4. Entity oluştur
             var user = new User
             {
-                UserName = dto.UserName,
+                FullName = dto.UserName,
                 Email = dto.Email,
-                PasswordHash = hashed // entity'nde bu property yoksa ekle: public string PasswordHash {get; set;}
+                PasswordHash = hashed
             };
 
             // 5. Kaydet
@@ -44,7 +44,7 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
-                UserName = user.UserName,
+                UserName = user.FullName,
                 Email = user.Email
             };
         }
@@ -57,7 +57,7 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
-                UserName = user.UserName,
+                UserName = user.FullName,
                 Email = user.Email
             };
         }
@@ -73,7 +73,7 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
-                UserName = user.UserName,
+                UserName = user.FullName,
                 Email = user.Email
             };
         }
@@ -85,7 +85,7 @@ namespace BusinessLogic.Services
 
             // güncellenecek alanlar
             if (!string.IsNullOrWhiteSpace(dto.UserName))
-                user.UserName = dto.UserName;
+                user.FullName = dto.UserName;
 
             if (!string.IsNullOrWhiteSpace(dto.Email) && dto.Email != user.Email)
             {
@@ -107,7 +107,7 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
-                UserName = user.UserName,
+                UserName = user.FullName,
                 Email = user.Email
             };
         }

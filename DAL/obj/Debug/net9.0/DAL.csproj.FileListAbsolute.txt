@@ -9,10 +9,10 @@ C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.GeneratedMSBuildEditorConfig
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.AssemblyInfoInputs.cache
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.AssemblyInfo.cs
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.sourcelink.json
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.csproj.Up2Date
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.dll
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\refint\DAL.dll
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.pdb
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.genruntimeconfig.cache
 C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\ref\DAL.dll
-C:\Users\NURGÜL\CuzdanApp\DAL\obj\Debug\net9.0\DAL.sourcelink.json

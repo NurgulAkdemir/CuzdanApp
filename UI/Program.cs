@@ -12,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // generic repository
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-// özel repository
+// ï¿½zel repository
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // DAL repository'leri (zaten eklediysek atlama)
@@ -21,10 +21,13 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // BusinessLogic
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<IBalanceService, BalanceService>();
+builder.Services.AddScoped<IInstallmentService, InstallmentService>();
 
 
 
-// MVC veya API için
+// MVC veya API iï¿½in
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

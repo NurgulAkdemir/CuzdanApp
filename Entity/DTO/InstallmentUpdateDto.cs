@@ -2,9 +2,10 @@
 {
     public class InstallmentUpdateDto
     {
-        public decimal TotalAmount { get; set; }
-        public int Months { get; set; }
         public decimal InterestRate { get; set; }
+        public int TotalInstallments { get; set; }
+        public DateTime? NextPaymentDate { get; set; }
+        public bool IsActive { get; set; }
     }
 }
 

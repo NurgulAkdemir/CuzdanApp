@@ -5,8 +5,8 @@ C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.GeneratedMSBuildEditor
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.AssemblyInfoInputs.cache
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.AssemblyInfo.cs
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.sourcelink.json
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.dll
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\refint\Entity.dll
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.pdb
 C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\ref\Entity.dll
-C:\Users\NURGÜL\CuzdanApp\Entity\obj\Debug\net9.0\Entity.sourcelink.json

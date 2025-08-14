@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\installmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\installmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,10 +95,6 @@
       "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -122,37 +126,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\TransactionService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\TransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T10:42:16.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\ITransactionService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\ITransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T08:47:56.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "BalanceUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceUpdateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\BalanceUpdateDto.cs",
@@ -164,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "BalanceResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceResponseDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\BalanceResponseDto.cs",
@@ -176,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TransactionResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionResponseDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\TransactionResponseDto.cs",
@@ -184,12 +162,11 @@
               "RelativeToolTip": "Entity\\DTO\\TransactionResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:57:42.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T06:57:42.857Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Services\\IUserService.cs",
@@ -197,12 +174,63 @@
               "RelativeToolTip": "BusinessLogic\\Services\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:32:53.149Z",
+              "WhenOpened": "2025-08-12T13:32:53.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\ITransactionService.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T08:47:56.103Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\TransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T10:42:16.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InstallmentService.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\InstallmentService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\InstallmentService.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\InstallmentService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\InstallmentService.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAADwv90AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T13:43:24.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TransactionCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
+              "RelativeDocumentMoniker": "Entity\\DTO\\TransactionCreateDto.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
+              "RelativeToolTip": "Entity\\DTO\\TransactionCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T06:59:34.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "TransactionUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionUpdateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\TransactionUpdateDto.cs",
@@ -214,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "InstallmentUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentUpdateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentUpdateDto.cs",
@@ -226,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "BalanceCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceCreateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\BalanceCreateDto.cs",
@@ -238,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UserLoginDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserLoginDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\UserLoginDto.cs",
@@ -250,7 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Services\\UserService.cs",
@@ -262,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "UserCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserCreateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\UserCreateDto.cs",
@@ -274,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "UserResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserResponseDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\UserResponseDto.cs",
@@ -286,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "DAL\\Repositories\\UserRepository.cs",
@@ -298,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "UserUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserUpdateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\UserUpdateDto.cs",
@@ -310,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\User.cs",
               "RelativeDocumentMoniker": "Entity\\User.cs",
@@ -322,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "UI\\Controllers\\UserController.cs",
@@ -334,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IRepository.cs",
               "RelativeDocumentMoniker": "DAL\\Repositories\\IRepository.cs",
@@ -346,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "DAL\\Repositories\\IUserRepository.cs",
@@ -358,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "InstallmentResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentResponseDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentResponseDto.cs",
@@ -370,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "InstallmentCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCreateDto.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentCreateDto.cs",
@@ -382,19 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "TransactionCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\TransactionCreateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\TransactionCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:59:34.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "BusinessLogic.csproj",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\BusinessLogic.csproj",
               "RelativeDocumentMoniker": "BusinessLogic\\BusinessLogic.csproj",
@@ -406,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs",
               "RelativeDocumentMoniker": "UI\\Program.cs",
@@ -418,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "DAL\\Repositories\\Repository.cs",
@@ -430,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Installment.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Installment.cs",
               "RelativeDocumentMoniker": "Entity\\Installment.cs",
@@ -442,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Balance.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Balance.cs",
               "RelativeDocumentMoniker": "Entity\\Balance.cs",
@@ -454,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",

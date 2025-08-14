@@ -1,4 +1,6 @@
-﻿namespace Entity.DTO
+﻿using Entity;
+
+namespace Entity.DTO
 {
     public class TransactionUpdateDto
     {
@@ -6,7 +8,7 @@
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public string Category { get; set; }
-        public string Type { get; set; }
+        public TransactionType Type { get; set; }
     }
 }
 
