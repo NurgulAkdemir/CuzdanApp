@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity
 {
@@ -14,11 +15,18 @@ namespace Entity
 
         public bool EmailConfirmed { get; set; } = false;
         public UserRole Role { get; set; } = UserRole.User;
-        public decimal Balance { get; set; } = 0m; // isteðe baðlý; alternatif: hesaplamayla elde et
+        public decimal Balance { get; set; } = 0m; // isteÄŸe baÄŸlÄ±; alternatif: hesaplamayla elde et
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation properties
         public List<Transaction> Transactions { get; set; } = new();
         public List<Installment> Installments { get; set; } = new();
+        
+        [NotMapped]
+        public List<Installment> ActiveInstallments => Installments.FindAll(i => i.IsActive);
+        
+        [NotMapped]
+        public List<Installment> CompletedInstallments => Installments.FindAll(i => !i.IsActive);
+
     }
 }

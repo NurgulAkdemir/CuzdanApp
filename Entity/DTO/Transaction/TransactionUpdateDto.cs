@@ -1,6 +1,10 @@
-﻿using Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Entity.DTO
+namespace Entity.DTO.Transaction
 {
     public class TransactionUpdateDto
     {
@@ -11,4 +15,3 @@ namespace Entity.DTO
         public TransactionType Type { get; set; }
     }
 }
-

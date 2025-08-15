@@ -1,8 +1,12 @@
-using Entity.DTO;
+﻿using Entity.DTO;
+using Entity.DTO.Installment;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Services
+namespace BusinessLogic.Interfaces
 {
     public interface IInstallmentService
     {
@@ -15,5 +19,7 @@ namespace BusinessLogic.Services
         Task<InstallmentResponseDto> ProcessPaymentAsync(int installmentId, decimal paymentAmount);
         decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, int totalInstallments);
         decimal CalculatePerInstallmentAmount(decimal totalAmount, int totalInstallments);
+
+        InstallmentCalculationResponseDto CalculateInstallment(InstallmentCalculationRequestDto request);
     }
 }

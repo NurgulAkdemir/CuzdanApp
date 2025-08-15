@@ -1,8 +1,14 @@
 ﻿using Entity.DTO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Entity;
+using BusinessLogic.Interfaces;
+using Entity.DTO.User;
 
-namespace BusinessLogic.Services
+
+namespace BusinessLogic.Interfaces
 {
     public interface IUserService
     {

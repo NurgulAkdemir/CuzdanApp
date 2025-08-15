@@ -15,7 +15,34 @@ namespace DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // İlişkiler ve özel tablolar için Fluent API ayarları buraya gelecek
+            
+            // User - Transaction ilişkisi
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Transactions)
+                .WithOne(t => t.User)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // User - Installment ilişkisi
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Installments)
+                .WithOne(i => i.User)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // User - Balance ilişkisi
+            modelBuilder.Entity<Balance>()
+                .HasOne(b => b.User)
+                .WithMany()
+                .HasForeignKey(b => b.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Installment - Transaction ilişkisi
+            modelBuilder.Entity<Installment>()
+                .HasMany(i => i.Transactions)
+                .WithOne(t => t.Installment)
+                .HasForeignKey(t => t.InstallmentId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

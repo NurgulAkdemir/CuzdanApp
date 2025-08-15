@@ -1,5 +1,7 @@
 ﻿using BusinessLogic.Services;
+using BusinessLogic.Interfaces;
 using Entity.DTO;
+using Entity.DTO.User;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

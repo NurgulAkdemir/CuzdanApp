@@ -1,5 +1,7 @@
+using BusinessLogic.Interfaces;
 using BusinessLogic.Services;
 using Entity.DTO;
+using Entity.DTO.Installment;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -139,24 +141,28 @@ namespace UI.Controllers
         }
 
         [HttpPost("calculate")]
-        public IActionResult CalculateInstallment([FromBody] InstallmentCalculationRequest request)
+        public IActionResult CalculateInstallment([FromBody] InstallmentCalculationRequestDto request)
         {
             try
             {
-                var totalAmount = _installmentService.CalculateTotalAmount(
-                    request.OriginalAmount, request.InterestRate, request.TotalInstallments);
-                
-                var perInstallmentAmount = _installmentService.CalculatePerInstallmentAmount(
-                    totalAmount, request.TotalInstallments);
 
-                return Ok(new
-                {
-                    OriginalAmount = request.OriginalAmount,
-                    InterestRate = request.InterestRate,
-                    TotalInstallments = request.TotalInstallments,
-                    TotalAmount = totalAmount,
-                    PerInstallmentAmount = perInstallmentAmount
-                });
+
+                var res = _installmentService.CalculateInstallment(request);
+                return Ok(res);
+                //var totalAmount = _installmentService.CalculateTotalAmount(
+                //    request.OriginalAmount, request.InterestRate, request.TotalInstallments);
+
+                //var perInstallmentAmount = _installmentService.CalculatePerInstallmentAmount(
+                //    totalAmount, request.TotalInstallments);
+
+                //return Ok(new
+                //{
+                //    OriginalAmount = request.OriginalAmount,
+                //    InterestRate = request.InterestRate,
+                //    TotalInstallments = request.TotalInstallments,
+                //    TotalAmount = totalAmount,
+                //    PerInstallmentAmount = perInstallmentAmount
+                //});
             }
             catch (Exception)
             {
@@ -165,10 +171,5 @@ namespace UI.Controllers
         }
     }
 
-    public class InstallmentCalculationRequest
-    {
-        public decimal OriginalAmount { get; set; }
-        public decimal InterestRate { get; set; }
-        public int TotalInstallments { get; set; }
-    }
+
 }

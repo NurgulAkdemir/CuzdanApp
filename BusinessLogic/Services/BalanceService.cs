@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessLogic.Interfaces;
+using Entity.DTO.Balance;
 
 namespace BusinessLogic.Services
 {

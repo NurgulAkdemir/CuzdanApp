@@ -10,5 +10,6 @@ namespace Entity
         public DateTime AsOf { get; set; } = DateTime.UtcNow;
 
         public User? User { get; set; }
+
     }
 }

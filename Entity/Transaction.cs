@@ -1,4 +1,5 @@
-using System;
+using Entity.DTO.Installment;
+using Entity.DTO;
 
 namespace Entity
 {

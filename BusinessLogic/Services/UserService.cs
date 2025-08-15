@@ -3,6 +3,8 @@ using Entity;
 using Entity.DTO;
 using System;
 using System.Threading.Tasks;
+using BusinessLogic.Interfaces;
+using Entity.DTO.User;
 
 namespace BusinessLogic.Services
 {

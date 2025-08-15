@@ -3,120 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\installmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\installmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\interfaces\\iinstallmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\interfaces\\iinstallmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\installmentcalculationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentcalculationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\installmentcalculationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentcalculationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\calculationmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\calculationmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\interesttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\interesttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\installmentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\transactionupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\transactionupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\usercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\usercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\balanceupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\balanceupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\balanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\balanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\balancecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\balancecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\userupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\userupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\installmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\dto\\installmentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\installmentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\installment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\installment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\installmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\installmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -126,359 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BalanceUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceUpdateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\BalanceUpdateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceUpdateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\BalanceUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "IInstallmentService.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Interfaces\\IInstallmentService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Interfaces\\IInstallmentService.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Interfaces\\IInstallmentService.cs*",
+              "RelativeToolTip": "BusinessLogic\\Interfaces\\IInstallmentService.cs*",
+              "ViewState": "AgIAABEAAAAAAAAAAAAywCAAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:05:21.953Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BalanceResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceResponseDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\BalanceResponseDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceResponseDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\BalanceResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:04:42.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TransactionResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionResponseDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\TransactionResponseDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionResponseDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\TransactionResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:57:42.857Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\IUserService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\IUserService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:32:53.149Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\ITransactionService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\ITransactionService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\ITransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T08:47:56.103Z",
+              "WhenOpened": "2025-08-15T13:10:54.032Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\TransactionService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\TransactionService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\TransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABiAAAAAAAAAA==",
+              "Title": "InstallmentCalculationResponse.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCalculationResponse.cs",
+              "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentCalculationResponse.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCalculationResponse.cs*",
+              "RelativeToolTip": "Entity\\DTO\\InstallmentCalculationResponse.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T10:42:16.216Z",
+              "WhenOpened": "2025-08-15T13:09:24.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InstallmentService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\InstallmentService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\InstallmentService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\InstallmentService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\InstallmentService.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAADwv90AAAAtAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "InstallmentCalculationRequest.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCalculationRequest.cs",
+              "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentCalculationRequest.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCalculationRequest.cs*",
+              "RelativeToolTip": "Entity\\DTO\\InstallmentCalculationRequest.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T13:43:24.341Z",
+              "WhenOpened": "2025-08-15T13:06:05.934Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "TransactionCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\TransactionCreateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionCreateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\TransactionCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Title": "CalculationMethod.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\CalculationMethod.cs",
+              "RelativeDocumentMoniker": "Entity\\DTO\\CalculationMethod.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\CalculationMethod.cs*",
+              "RelativeToolTip": "Entity\\DTO\\CalculationMethod.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:59:34.563Z",
+              "WhenOpened": "2025-08-15T11:25:58.954Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TransactionUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionUpdateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\TransactionUpdateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\TransactionUpdateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\TransactionUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "InterestType.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InterestType.cs",
+              "RelativeDocumentMoniker": "Entity\\DTO\\InterestType.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InterestType.cs*",
+              "RelativeToolTip": "Entity\\DTO\\InterestType.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:06:52.938Z"
+              "WhenOpened": "2025-08-15T11:24:31.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InstallmentController.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\InstallmentController.cs",
+              "RelativeDocumentMoniker": "UI\\Controllers\\InstallmentController.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\InstallmentController.cs",
+              "RelativeToolTip": "UI\\Controllers\\InstallmentController.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAA/wJMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T10:35:57.58Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "InstallmentUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentUpdateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentUpdateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentUpdateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\InstallmentUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:07:46.057Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "BalanceCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceCreateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\BalanceCreateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\BalanceCreateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\BalanceCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:04:05.843Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserLoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserLoginDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\UserLoginDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserLoginDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\UserLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:59:02.61Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\UserService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\UserService.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAowGUAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T14:27:58.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserCreateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\UserCreateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserCreateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\UserCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:46:40.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserResponseDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\UserResponseDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserResponseDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\UserResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T06:47:06.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:12:35.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UserUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserUpdateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\UserUpdateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\UserUpdateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\UserUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:45:01.345Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\User.cs",
-              "RelativeDocumentMoniker": "Entity\\User.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\User.cs",
-              "RelativeToolTip": "Entity\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T14:44:25.794Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "UI\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "UI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:39:26.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\IRepository.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\IRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:09:46.991Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:11:55.261Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "InstallmentResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentResponseDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentResponseDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentResponseDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\InstallmentResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:00:04.601Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "InstallmentCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCreateDto.cs",
-              "RelativeDocumentMoniker": "Entity\\DTO\\InstallmentCreateDto.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InstallmentCreateDto.cs",
-              "RelativeToolTip": "Entity\\DTO\\InstallmentCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:02:23.661Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "BusinessLogic.csproj",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\BusinessLogic.csproj",
-              "RelativeDocumentMoniker": "BusinessLogic\\BusinessLogic.csproj",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\BusinessLogic.csproj",
-              "RelativeToolTip": "BusinessLogic\\BusinessLogic.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-12T07:24:25.488Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs",
-              "RelativeDocumentMoniker": "UI\\Program.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs",
-              "RelativeToolTip": "UI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T08:27:53.876Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\Repository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\Repository.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Repositories\\Repository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\Repository.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAwwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:10:59.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Installment.cs",
-              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Installment.cs",
-              "RelativeDocumentMoniker": "Entity\\Installment.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Installment.cs",
-              "RelativeToolTip": "Entity\\Installment.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T08:52:10.012Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
               "Title": "Balance.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Balance.cs",
               "RelativeDocumentMoniker": "Entity\\Balance.cs",
               "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Balance.cs",
               "RelativeToolTip": "Entity\\Balance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T08:51:22.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 6,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeToolTip": "DAL\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswAkAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T08:42:55.99Z"
+              "WhenOpened": "2025-08-11T08:42:55.99Z",
+              "EditorCaption": ""
             }
           ]
         }

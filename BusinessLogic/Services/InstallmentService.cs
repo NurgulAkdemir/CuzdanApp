@@ -1,10 +1,9 @@
+using BusinessLogic.Interfaces;
 using DAL.Repositories;
 using Entity;
 using Entity.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Entity.DTO.Installment;
+using Entity.DTO.Transaction;
 
 namespace BusinessLogic.Services
 {
@@ -237,6 +236,23 @@ namespace BusinessLogic.Services
         public decimal CalculatePerInstallmentAmount(decimal totalAmount, int totalInstallments)
         {
             return Math.Round(totalAmount / totalInstallments, 2);
+        }
+
+        public InstallmentCalculationResponseDto CalculateInstallment(InstallmentCalculationRequestDto request)
+        {
+            if (request.OriginalAmount <= 0) throw new ArgumentException("Anapara tutarı 0'dan büyük olmalıdır.");
+            if (request.InterestRate < 0) throw new ArgumentException("Faiz oranı negatif olamaz.");
+            if (request.TotalInstallments <= 0) throw new ArgumentException("Taksit sayısı 0'dan büyük olmalıdır.");
+            decimal totalAmount = CalculateTotalAmount(request.OriginalAmount, request.InterestRate, request.TotalInstallments);
+            decimal perInstallmentAmount = CalculatePerInstallmentAmount(totalAmount, request.TotalInstallments);
+            return new InstallmentCalculationResponseDto
+            {
+                OriginalAmount = request.OriginalAmount,
+                InterestRate = request.InterestRate,
+                TotalInstallments = request.TotalInstallments,
+                TotalAmount = totalAmount,
+                PerInstallmentAmount = perInstallmentAmount
+            };
         }
     }
 }

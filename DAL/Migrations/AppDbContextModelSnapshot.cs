@@ -17,7 +17,7 @@ namespace DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.8")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -193,7 +193,8 @@ namespace DAL.Migrations
                 {
                     b.HasOne("Entity.Installment", "Installment")
                         .WithMany("Transactions")
-                        .HasForeignKey("InstallmentId");
+                        .HasForeignKey("InstallmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Entity.User", "User")
                         .WithMany("Transactions")

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Entity.DTO.Transaction;
 
 namespace Entity
 {
@@ -9,13 +10,13 @@ namespace Entity
         public int UserId { get; set; }
 
         public decimal OriginalAmount { get; set; } // anapara
-        public decimal InterestRate { get; set; } // örn: 0.05 => %5
+        public decimal InterestRate { get; set; } // Ã¶rn: 0.05 => %5
         public int TotalInstallments { get; set; }
         public int RemainingInstallments { get; set; }
-        public decimal PerInstallmentAmount { get; set; } // hesaplanmýþ (faiz dahil)
-        public decimal TotalAmount { get; set; } // toplam ödenecek (faizli)
+        public decimal PerInstallmentAmount { get; set; } // hesaplanmÄ±ÅŸ (faiz dahil)
+        public decimal TotalAmount { get; set; } // toplam Ã¶denecek (faizli)
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? NextPaymentDate { get; set; } // sonraki ödeme zamaný
+        public DateTime? NextPaymentDate { get; set; } // sonraki Ã¶deme zamanÄ±
         public bool IsActive { get; set; } = true;
 
         public User? User { get; set; }

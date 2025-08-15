@@ -30,7 +30,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Entity.DTO.BalanceUpdateDto",
+        "Type": "Entity.DTO.Balance.BalanceUpdateDto",
         "IsRequired": true
       }
     ],
@@ -67,7 +67,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Entity.DTO.BalanceCreateDto",
+        "Type": "Entity.DTO.Balance.BalanceCreateDto",
         "IsRequired": true
       }
     ],
@@ -115,7 +115,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Entity.DTO.InstallmentCreateDto",
+        "Type": "Entity.DTO.Installment.InstallmentCreateDto",
         "IsRequired": true
       }
     ],
@@ -162,7 +162,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Entity.DTO.InstallmentUpdateDto",
+        "Type": "Entity.DTO.Installment.InstallmentUpdateDto",
         "IsRequired": true
       }
     ],
@@ -215,7 +215,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "UI.Controllers.InstallmentCalculationRequest",
+        "Type": "Entity.DTO.Installment.InstallmentCalculationRequestDto",
         "IsRequired": true
       }
     ],
@@ -247,7 +247,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Entity.DTO.TransactionCreateDto",
+        "Type": "Entity.DTO.Transaction.TransactionCreateDto",
         "IsRequired": true
       }
     ],
@@ -294,7 +294,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Entity.DTO.TransactionUpdateDto",
+        "Type": "Entity.DTO.Transaction.TransactionUpdateDto",
         "IsRequired": true
       }
     ],
@@ -342,7 +342,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Entity.DTO.UserLoginDto",
+        "Type": "Entity.DTO.User.UserLoginDto",
         "IsRequired": true
       }
     ],
@@ -358,7 +358,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Entity.DTO.UserCreateDto",
+        "Type": "Entity.DTO.User.UserCreateDto",
         "IsRequired": true
       }
     ],

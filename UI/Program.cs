@@ -1,4 +1,5 @@
 using BusinessLogic.Services;
+using BusinessLogic.Interfaces;
 using DAL.Context;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // DbContext ekleme
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"), 
+        b => b.MigrationsAssembly("DAL")));
 
 // generic repository
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
