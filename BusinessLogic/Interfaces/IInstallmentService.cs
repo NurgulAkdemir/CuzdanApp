@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entity;
 
 namespace BusinessLogic.Interfaces
 {
@@ -17,7 +18,7 @@ namespace BusinessLogic.Interfaces
         Task<InstallmentResponseDto> UpdateInstallmentAsync(int id, InstallmentUpdateDto dto);
         Task<bool> DeleteInstallmentAsync(int id);
         Task<InstallmentResponseDto> ProcessPaymentAsync(int installmentId, decimal paymentAmount);
-        decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, int totalInstallments);
+        decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, InterestType interestType, int totalInstallments);
         decimal CalculatePerInstallmentAmount(decimal totalAmount, int totalInstallments);
 
         InstallmentCalculationResponseDto CalculateInstallment(InstallmentCalculationRequestDto request);

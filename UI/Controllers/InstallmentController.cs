@@ -5,6 +5,7 @@ using Entity.DTO.Installment;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Entity;
 
 namespace UI.Controllers
 {
@@ -145,31 +146,86 @@ namespace UI.Controllers
         {
             try
             {
-
-
                 var res = _installmentService.CalculateInstallment(request);
                 return Ok(res);
-                //var totalAmount = _installmentService.CalculateTotalAmount(
-                //    request.OriginalAmount, request.InterestRate, request.TotalInstallments);
-
-                //var perInstallmentAmount = _installmentService.CalculatePerInstallmentAmount(
-                //    totalAmount, request.TotalInstallments);
-
-                //return Ok(new
-                //{
-                //    OriginalAmount = request.OriginalAmount,
-                //    InterestRate = request.InterestRate,
-                //    TotalInstallments = request.TotalInstallments,
-                //    TotalAmount = totalAmount,
-                //    PerInstallmentAmount = perInstallmentAmount
-                //});
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { error = ex.Message });
             }
             catch (Exception)
             {
                 return StatusCode(500, new { error = "Hesaplama yapılırken bir hata oluştu." });
             }
         }
+
+        [HttpGet("interest-types")]
+        public IActionResult GetInterestTypes()
+        {
+            try
+            {
+                var interestTypes = new[]
+                {
+                    new { Value = (int)InterestType.Annual, Name = "Yıllık", Description = "Faiz oranı yıllık bazda uygulanır" },
+                    new { Value = (int)InterestType.Monthly, Name = "Aylık", Description = "Faiz oranı aylık bazda uygulanır (bileşik faiz)" }
+                };
+                
+                return Ok(interestTypes);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new { error = "Faiz türleri getirilirken bir hata oluştu." });
+            }
+        }
+
+        [HttpPost("calculate-comparison")]
+        public IActionResult CalculateComparison([FromBody] InstallmentCalculationRequestDto request)
+        {
+            try
+            {
+                if (request.OriginalAmount <= 0) throw new ArgumentException("Anapara tutarı 0'dan büyük olmalıdır.");
+                if (request.InterestRate < 0) throw new ArgumentException("Faiz oranı negatif olamaz.");
+                if (request.TotalInstallments <= 0) throw new ArgumentException("Taksit sayısı 0'dan büyük olmalıdır.");
+
+                // Yıllık faiz hesaplama
+                var annualResult = _installmentService.CalculateInstallment(new InstallmentCalculationRequestDto
+                {
+                    OriginalAmount = request.OriginalAmount,
+                    InterestRate = request.InterestRate,
+                    InterestType = InterestType.Annual,
+                    TotalInstallments = request.TotalInstallments
+                });
+
+                // Aylık faiz hesaplama
+                var monthlyResult = _installmentService.CalculateInstallment(new InstallmentCalculationRequestDto
+                {
+                    OriginalAmount = request.OriginalAmount,
+                    InterestRate = request.InterestRate,
+                    InterestType = InterestType.Monthly,
+                    TotalInstallments = request.TotalInstallments
+                });
+
+                var comparison = new
+                {
+                    OriginalAmount = request.OriginalAmount,
+                    InterestRate = request.InterestRate,
+                    TotalInstallments = request.TotalInstallments,
+                    AnnualCalculation = annualResult,
+                    MonthlyCalculation = monthlyResult,
+                    Difference = monthlyResult.TotalAmount - annualResult.TotalAmount,
+                    DifferencePercentage = ((monthlyResult.TotalAmount - annualResult.TotalAmount) / annualResult.TotalAmount) * 100
+                };
+
+                return Ok(comparison);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new { error = "Karşılaştırma hesaplaması yapılırken bir hata oluştu." });
+            }
+        }
     }
-
-
 }

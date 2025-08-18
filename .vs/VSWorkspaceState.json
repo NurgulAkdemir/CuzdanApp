@@ -2,12 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\BusinessLogic",
+    "\\BusinessLogic\\Interfaces",
     "\\BusinessLogic\\Services",
     "\\DAL",
     "\\Entity",
     "\\Entity\\DTO",
-    "\\UI"
+    "\\UI",
+    "\\UI\\Controllers"
   ],
-  "SelectedNode": "\\CuzdanApp.sln",
+  "SelectedNode": "\\UI\\Controllers\\InstallmentController.cs",
   "PreviewInSolutionExplorer": false
 }

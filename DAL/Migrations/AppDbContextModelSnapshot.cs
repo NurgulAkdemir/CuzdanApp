@@ -60,6 +60,9 @@ namespace DAL.Migrations
                     b.Property<decimal>("InterestRate")
                         .HasColumnType("numeric");
 
+                    b.Property<int>("InterestType")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 

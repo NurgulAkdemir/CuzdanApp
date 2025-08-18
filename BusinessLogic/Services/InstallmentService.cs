@@ -30,7 +30,7 @@ namespace BusinessLogic.Services
             if (user == null) throw new InvalidOperationException("Kullanıcı bulunamadı.");
 
             // Toplam tutarı hesapla
-            decimal totalAmount = CalculateTotalAmount(dto.OriginalAmount, dto.InterestRate, dto.TotalInstallments);
+            decimal totalAmount = CalculateTotalAmount(dto.OriginalAmount, dto.InterestRate, dto.InterestType, dto.TotalInstallments);
             
             // Taksit başına tutarı hesapla
             decimal perInstallmentAmount = CalculatePerInstallmentAmount(totalAmount, dto.TotalInstallments);
@@ -40,6 +40,7 @@ namespace BusinessLogic.Services
                 UserId = dto.UserId,
                 OriginalAmount = dto.OriginalAmount,
                 InterestRate = dto.InterestRate,
+                InterestType = dto.InterestType,
                 TotalInstallments = dto.TotalInstallments,
                 RemainingInstallments = dto.TotalInstallments,
                 PerInstallmentAmount = perInstallmentAmount,
@@ -57,6 +58,7 @@ namespace BusinessLogic.Services
                 UserId = installment.UserId,
                 OriginalAmount = installment.OriginalAmount,
                 InterestRate = installment.InterestRate,
+                InterestType = installment.InterestType,
                 TotalInstallments = installment.TotalInstallments,
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
@@ -78,6 +80,7 @@ namespace BusinessLogic.Services
                 UserId = installment.UserId,
                 OriginalAmount = installment.OriginalAmount,
                 InterestRate = installment.InterestRate,
+                InterestType = installment.InterestType,
                 TotalInstallments = installment.TotalInstallments,
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
@@ -98,6 +101,7 @@ namespace BusinessLogic.Services
                 UserId = i.UserId,
                 OriginalAmount = i.OriginalAmount,
                 InterestRate = i.InterestRate,
+                InterestType = i.InterestType,
                 TotalInstallments = i.TotalInstallments,
                 RemainingInstallments = i.RemainingInstallments,
                 PerInstallmentAmount = i.PerInstallmentAmount,
@@ -118,6 +122,7 @@ namespace BusinessLogic.Services
                 UserId = i.UserId,
                 OriginalAmount = i.OriginalAmount,
                 InterestRate = i.InterestRate,
+                InterestType = i.InterestType,
                 TotalInstallments = i.TotalInstallments,
                 RemainingInstallments = i.RemainingInstallments,
                 PerInstallmentAmount = i.PerInstallmentAmount,
@@ -137,12 +142,13 @@ namespace BusinessLogic.Services
             if (dto.TotalInstallments <= 0) throw new ArgumentException("Taksit sayısı 0'dan büyük olmalıdır.");
 
             installment.InterestRate = dto.InterestRate;
+            installment.InterestType = dto.InterestType;
             installment.TotalInstallments = dto.TotalInstallments;
             installment.NextPaymentDate = dto.NextPaymentDate;
             installment.IsActive = dto.IsActive;
 
             // Toplam tutarı yeniden hesapla
-            installment.TotalAmount = CalculateTotalAmount(installment.OriginalAmount, installment.InterestRate, installment.TotalInstallments);
+            installment.TotalAmount = CalculateTotalAmount(installment.OriginalAmount, installment.InterestRate, installment.InterestType, installment.TotalInstallments);
             installment.PerInstallmentAmount = CalculatePerInstallmentAmount(installment.TotalAmount, installment.TotalInstallments);
 
             await _installmentRepository.UpdateAsync(installment);
@@ -153,6 +159,7 @@ namespace BusinessLogic.Services
                 UserId = installment.UserId,
                 OriginalAmount = installment.OriginalAmount,
                 InterestRate = installment.InterestRate,
+                InterestType = installment.InterestType,
                 TotalInstallments = installment.TotalInstallments,
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
@@ -215,6 +222,7 @@ namespace BusinessLogic.Services
                 UserId = installment.UserId,
                 OriginalAmount = installment.OriginalAmount,
                 InterestRate = installment.InterestRate,
+                InterestType = installment.InterestType,
                 TotalInstallments = installment.TotalInstallments,
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
@@ -225,12 +233,24 @@ namespace BusinessLogic.Services
             };
         }
 
-        public decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, int totalInstallments)
+        public decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, InterestType interestType, int totalInstallments)
         {
-            // Basit faiz hesaplama: A = P(1 + rt)
-            // P: Anapara, r: Faiz oranı, t: Zaman (yıl)
-            decimal timeInYears = totalInstallments / 12.0m;
-            return originalAmount * (1 + interestRate * timeInYears);
+            decimal timeInYears;
+            
+            if (interestType == InterestType.Annual)
+            {
+                // Yıllık faiz: A = P(1 + rt)
+                // P: Anapara, r: Yıllık faiz oranı, t: Zaman (yıl)
+                timeInYears = totalInstallments / 12.0m;
+                return originalAmount * (1 + interestRate * timeInYears);
+            }
+            else
+            {
+                // Aylık faiz: A = P(1 + r)^t
+                // P: Anapara, r: Aylık faiz oranı, t: Taksit sayısı (ay)
+                decimal monthlyRate = interestRate / 12.0m; // Yıllık oranı aylığa çevir
+                return originalAmount * (decimal)Math.Pow((double)(1 + monthlyRate), totalInstallments);
+            }
         }
 
         public decimal CalculatePerInstallmentAmount(decimal totalAmount, int totalInstallments)
@@ -243,12 +263,15 @@ namespace BusinessLogic.Services
             if (request.OriginalAmount <= 0) throw new ArgumentException("Anapara tutarı 0'dan büyük olmalıdır.");
             if (request.InterestRate < 0) throw new ArgumentException("Faiz oranı negatif olamaz.");
             if (request.TotalInstallments <= 0) throw new ArgumentException("Taksit sayısı 0'dan büyük olmalıdır.");
-            decimal totalAmount = CalculateTotalAmount(request.OriginalAmount, request.InterestRate, request.TotalInstallments);
+            
+            decimal totalAmount = CalculateTotalAmount(request.OriginalAmount, request.InterestRate, request.InterestType, request.TotalInstallments);
             decimal perInstallmentAmount = CalculatePerInstallmentAmount(totalAmount, request.TotalInstallments);
+            
             return new InstallmentCalculationResponseDto
             {
                 OriginalAmount = request.OriginalAmount,
                 InterestRate = request.InterestRate,
+                InterestType = request.InterestType,
                 TotalInstallments = request.TotalInstallments,
                 TotalAmount = totalAmount,
                 PerInstallmentAmount = perInstallmentAmount
