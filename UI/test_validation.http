@@ -1,0 +1,175 @@
+### Test 1: Geçersiz Kullanıcı Oluşturma (Validasyon Hatası)
+POST {{baseUrl}}/api/User/register
+Content-Type: application/json
+
+{
+  "userName": "ab",
+  "email": "invalid-email",
+  "passwordHash": "123"
+}
+
+### Test 2: Geçerli Kullanıcı Oluşturma
+POST {{baseUrl}}/api/User/register
+Content-Type: application/json
+
+{
+  "userName": "testuser",
+  "email": "test@example.com",
+  "passwordHash": "password123"
+}
+
+### Test 3: Geçersiz İşlem Oluşturma (Validasyon Hatası)
+POST {{baseUrl}}/api/Transaction
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "amount": 0,
+  "type": 999,
+  "category": "",
+  "description": "A".repeat(600),
+  "transactionDate": "2030-01-01T00:00:00Z"
+}
+
+### Test 4: Geçerli İşlem Oluşturma
+POST {{baseUrl}}/api/Transaction
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "amount": 100.50,
+  "type": 1,
+  "category": "Market",
+  "description": "Market alışverişi",
+  "transactionDate": "2024-01-15T10:00:00Z"
+}
+
+### Test 5: Geçersiz Bakiye Oluşturma (Validasyon Hatası)
+POST {{baseUrl}}/api/Balance/1
+Content-Type: application/json
+
+{
+  "amount": 0
+}
+
+### Test 6: Geçerli Bakiye Oluşturma
+POST {{baseUrl}}/api/Balance/1
+Content-Type: application/json
+
+{
+  "amount": 500.75
+}
+
+### Test 7: Geçersiz Taksit Oluşturma (Validasyon Hatası)
+POST {{baseUrl}}/api/Installment
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "originalAmount": 0,
+  "interestRate": -5,
+  "interestType": 999,
+  "totalInstallments": 0,
+  "nextPaymentDate": "2020-01-01T00:00:00Z"
+}
+
+### Test 8: Geçerli Taksit Oluşturma
+POST {{baseUrl}}/api/Installment
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "originalAmount": 10000,
+  "interestRate": 12.5,
+  "interestType": 0,
+  "totalInstallments": 12,
+  "nextPaymentDate": "2024-02-15T00:00:00Z"
+}
+
+### Test 9: Geçersiz Taksit Hesaplama (Validasyon Hatası)
+POST {{baseUrl}}/api/Installment/calculate
+Content-Type: application/json
+
+{
+  "originalAmount": 0,
+  "interestRate": -10,
+  "interestType": 999,
+  "totalInstallments": 0
+}
+
+### Test 10: Geçerli Taksit Hesaplama
+POST {{baseUrl}}/api/Installment/calculate
+Content-Type: application/json
+
+{
+  "originalAmount": 50000,
+  "interestRate": 15.0,
+  "interestType": 0,
+  "totalInstallments": 24
+}
+
+### Test 11: Geçersiz Kullanıcı Girişi (Validasyon Hatası)
+POST {{baseUrl}}/api/User/login
+Content-Type: application/json
+
+{
+  "email": "invalid-email",
+  "password": ""
+}
+
+### Test 12: Geçerli Kullanıcı Girişi
+POST {{baseUrl}}/api/User/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Test 13: Geçersiz İşlem Güncelleme (Validasyon Hatası)
+PUT {{baseUrl}}/api/Transaction/1
+Content-Type: application/json
+
+{
+  "amount": 0,
+  "description": "A".repeat(600),
+  "date": "2030-01-01T00:00:00Z",
+  "category": "",
+  "type": 999
+}
+
+### Test 14: Geçerli İşlem Güncelleme
+PUT {{baseUrl}}/api/Transaction/1
+Content-Type: application/json
+
+{
+  "amount": 150.25,
+  "description": "Güncellenmiş açıklama",
+  "date": "2024-01-16T10:00:00Z",
+  "category": "Market",
+  "type": 1
+}
+
+### Test 15: Geçersiz Taksit Güncelleme (Validasyon Hatası)
+PUT {{baseUrl}}/api/Installment/1
+Content-Type: application/json
+
+{
+  "interestRate": -5,
+  "interestType": 999,
+  "totalInstallments": 0,
+  "nextPaymentDate": "2020-01-01T00:00:00Z",
+  "isActive": true
+}
+
+### Test 16: Geçerli Taksit Güncelleme
+PUT {{baseUrl}}/api/Installment/1
+Content-Type: application/json
+
+{
+  "interestRate": 14.0,
+  "interestType": 0,
+  "totalInstallments": 18,
+  "nextPaymentDate": "2024-03-15T00:00:00Z",
+  "isActive": true
+}

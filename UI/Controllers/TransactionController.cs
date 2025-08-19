@@ -5,11 +5,13 @@ using Entity.DTO.Transaction;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Tüm endpoint'ler için authentication gerekli
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionService _transactionService;
@@ -22,6 +24,11 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTransaction(TransactionCreateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var created = await _transactionService.CreateTransactionAsync(dto);
@@ -73,6 +80,11 @@ namespace UI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, TransactionUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var updated = await _transactionService.UpdateTransactionAsync(id, dto);

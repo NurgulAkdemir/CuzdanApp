@@ -5,11 +5,13 @@ using Entity.DTO.Balance;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Tüm endpoint'ler için authentication gerekli
     public class BalanceController : ControllerBase
     {
         private readonly IBalanceService _balanceService;
@@ -22,6 +24,11 @@ namespace UI.Controllers
         [HttpPost("{userId}")]
         public async Task<IActionResult> CreateBalance(int userId, BalanceCreateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var created = await _balanceService.CreateBalanceAsync(userId, dto);
@@ -88,6 +95,11 @@ namespace UI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, BalanceUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var updated = await _balanceService.UpdateBalanceAsync(id, dto);

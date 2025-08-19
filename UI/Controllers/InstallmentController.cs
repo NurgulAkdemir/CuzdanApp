@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Entity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Tüm endpoint'ler için authentication gerekli
     public class InstallmentController : ControllerBase
     {
         private readonly IInstallmentService _installmentService;
@@ -23,6 +25,11 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateInstallment(InstallmentCreateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var created = await _installmentService.CreateInstallmentAsync(dto);
@@ -88,6 +95,11 @@ namespace UI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, InstallmentUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var updated = await _installmentService.UpdateInstallmentAsync(id, dto);
@@ -144,6 +156,11 @@ namespace UI.Controllers
         [HttpPost("calculate")]
         public IActionResult CalculateInstallment([FromBody] InstallmentCalculationRequestDto request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var res = _installmentService.CalculateInstallment(request);
@@ -181,6 +198,11 @@ namespace UI.Controllers
         [HttpPost("calculate-comparison")]
         public IActionResult CalculateComparison([FromBody] InstallmentCalculationRequestDto request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 if (request.OriginalAmount <= 0) throw new ArgumentException("Anapara tutarı 0'dan büyük olmalıdır.");

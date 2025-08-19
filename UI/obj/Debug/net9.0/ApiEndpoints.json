@@ -223,6 +223,32 @@
   },
   {
     "ContainingType": "UI.Controllers.InstallmentController",
+    "Method": "CalculateComparison",
+    "RelativePath": "api/Installment/calculate-comparison",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Entity.DTO.Installment.InstallmentCalculationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.InstallmentController",
+    "Method": "GetInterestTypes",
+    "RelativePath": "api/Installment/interest-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.InstallmentController",
     "Method": "GetByUserId",
     "RelativePath": "api/Installment/user/{userId}",
     "HttpMethod": "GET",
@@ -235,6 +261,66 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "AdminEndpoint",
+    "RelativePath": "api/JwtUsageExample/admin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "CustomClaimEndpoint",
+    "RelativePath": "api/JwtUsageExample/custom-claim",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "PremiumEndpoint",
+    "RelativePath": "api/JwtUsageExample/premium",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "ProtectedEndpoint",
+    "RelativePath": "api/JwtUsageExample/protected",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "PublicEndpoint",
+    "RelativePath": "api/JwtUsageExample/public",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Examples.JwtUsageExample",
+    "Method": "TokenInfo",
+    "RelativePath": "api/JwtUsageExample/token-info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -317,7 +403,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserController",
+    "ContainingType": "UI.Controllers.UserController",
     "Method": "Get",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
@@ -333,7 +419,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserController",
+    "ContainingType": "UI.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/User/login",
     "HttpMethod": "POST",
@@ -349,7 +435,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserController",
+    "ContainingType": "UI.Controllers.UserController",
+    "Method": "GetProfile",
+    "RelativePath": "api/User/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.UserController",
     "Method": "Register",
     "RelativePath": "api/User/register",
     "HttpMethod": "POST",
