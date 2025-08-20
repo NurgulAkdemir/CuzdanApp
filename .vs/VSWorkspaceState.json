@@ -1,15 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BusinessLogic",
-    "\\BusinessLogic\\Interfaces",
-    "\\BusinessLogic\\Services",
-    "\\DAL",
-    "\\Entity",
-    "\\Entity\\DTO",
-    "\\UI",
-    "\\UI\\Controllers"
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\pages"
   ],
-  "SelectedNode": "\\UI\\Controllers\\InstallmentController.cs",
+  "SelectedNode": "\\frontend\\postcss.config.js",
   "PreviewInSolutionExplorer": false
 }

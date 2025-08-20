@@ -141,4 +141,7 @@ C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.d
 C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cache
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cs
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-tthebkturh.gz
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\dmuzicriml-0xnpxp44eg.gz

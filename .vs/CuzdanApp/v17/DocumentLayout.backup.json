@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\postcss.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\postcss.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\installmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\installmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\balancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\balancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\pages\\Login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\Login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\CalculationMethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +43,32 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\DTO\\InterestType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\businesslogic\\interfaces\\iinstallmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A195A48-B7E8-4CAD-9F4C-FA69531F0768}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\interfaces\\iinstallmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\TransactionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Controllers\\TransactionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC535233-E0D0-4C0C-BFDF-57010ABD661F}|Entity\\Entity.csproj|solutionrelative:entity\\balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\BalanceController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Controllers\\BalanceController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Interfaces\\IInstallmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BusinessLogic\\Interfaces\\IInstallmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\InstallmentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Controllers\\InstallmentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\Balance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\Context\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,6 +83,110 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package-lock.json",
+              "RelativeDocumentMoniker": "frontend\\package-lock.json",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package-lock.json",
+              "RelativeToolTip": "frontend\\package-lock.json",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-20T11:00:38.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "postcss.config.js",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\postcss.config.js",
+              "RelativeDocumentMoniker": "frontend\\postcss.config.js",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\postcss.config.js",
+              "RelativeToolTip": "frontend\\postcss.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-20T10:56:31.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package.json",
+              "RelativeDocumentMoniker": "frontend\\package.json",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\package.json",
+              "RelativeToolTip": "frontend\\package.json",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-20T07:31:21.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "main.tsx",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\main.tsx",
+              "RelativeDocumentMoniker": "frontend\\src\\main.tsx",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\main.tsx",
+              "RelativeToolTip": "frontend\\src\\main.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-08-20T06:55:23.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.tsx",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\pages\\Login.tsx",
+              "RelativeDocumentMoniker": "frontend\\src\\pages\\Login.tsx",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\pages\\Login.tsx",
+              "RelativeToolTip": "frontend\\src\\pages\\Login.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-08-19T14:49:16.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "tailwind.config.js",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\tailwind.config.js",
+              "RelativeDocumentMoniker": "frontend\\tailwind.config.js",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\tailwind.config.js",
+              "RelativeToolTip": "frontend\\tailwind.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-19T14:46:03.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\App.tsx",
+              "RelativeDocumentMoniker": "frontend\\src\\App.tsx",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\App.tsx",
+              "RelativeToolTip": "frontend\\src\\App.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-08-19T14:43:12.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\index.css",
+              "RelativeDocumentMoniker": "frontend\\src\\index.css",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\index.css",
+              "RelativeToolTip": "frontend\\src\\index.css",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-19T14:43:04.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "UI\\Controllers\\TransactionController.cs",
@@ -58,25 +194,23 @@
               "RelativeToolTip": "UI\\Controllers\\TransactionController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T14:44:47.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T14:44:47.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs",
               "RelativeDocumentMoniker": "UI\\Program.cs",
               "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Program.cs",
               "RelativeToolTip": "UI\\Program.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAKAAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAAAKAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T14:39:09.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T14:39:09.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "BalanceController.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\BalanceController.cs",
               "RelativeDocumentMoniker": "UI\\Controllers\\BalanceController.cs",
@@ -84,12 +218,11 @@
               "RelativeToolTip": "UI\\Controllers\\BalanceController.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAYwDIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T14:37:05.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T14:37:05.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "IInstallmentService.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Interfaces\\IInstallmentService.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Interfaces\\IInstallmentService.cs",
@@ -101,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "CalculationMethod.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\CalculationMethod.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\CalculationMethod.cs",
@@ -113,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "InterestType.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\DTO\\InterestType.cs",
               "RelativeDocumentMoniker": "Entity\\DTO\\InterestType.cs",
@@ -125,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "InstallmentController.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\InstallmentController.cs",
               "RelativeDocumentMoniker": "UI\\Controllers\\InstallmentController.cs",
@@ -133,12 +266,11 @@
               "RelativeToolTip": "UI\\Controllers\\InstallmentController.cs",
               "ViewState": "AgIAALwAAAAAAAAAAAAAwJMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T10:35:57.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T10:35:57.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "Balance.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Balance.cs",
               "RelativeDocumentMoniker": "Entity\\Balance.cs",
@@ -150,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",
@@ -159,6 +291,10 @@
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwAoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T08:42:55.99Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

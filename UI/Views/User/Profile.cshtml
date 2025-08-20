@@ -1,0 +1,75 @@
+@model Entity.User
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Profil Bilgileri</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ad Soyad:</label>
+                            <p class="form-control-plaintext">@Model.FullName</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">E-posta:</label>
+                            <p class="form-control-plaintext">@Model.Email</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Hesap Türü:</label>
+                            <p class="form-control-plaintext">@Model.Role</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Kayıt Tarihi:</label>
+                            <p class="form-control-plaintext">@Model.CreatedAt.ToString("dd.MM.yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">E-posta Onayı:</label>
+                            <p class="form-control-plaintext">
+                                @if (Model.EmailConfirmed)
+                                {
+                                    <span class="badge bg-success">Onaylandı</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning">Onaylanmadı</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Hızlı İşlemler</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary">Yeni İşlem</a>
+                    <a asp-controller="Installment" asp-action="Create" class="btn btn-success">Taksit Oluştur</a>
+                    <a asp-controller="Balance" asp-action="Update" class="btn btn-info">Bakiye Güncelle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
