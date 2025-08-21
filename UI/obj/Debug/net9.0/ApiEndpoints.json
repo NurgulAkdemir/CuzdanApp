@@ -264,66 +264,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "AdminEndpoint",
-    "RelativePath": "api/JwtUsageExample/admin",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "CustomClaimEndpoint",
-    "RelativePath": "api/JwtUsageExample/custom-claim",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "PremiumEndpoint",
-    "RelativePath": "api/JwtUsageExample/premium",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "ProtectedEndpoint",
-    "RelativePath": "api/JwtUsageExample/protected",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "PublicEndpoint",
-    "RelativePath": "api/JwtUsageExample/public",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UI.Examples.JwtUsageExample",
-    "Method": "TokenInfo",
-    "RelativePath": "api/JwtUsageExample/token-info",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "UI.Controllers.TransactionController",
     "Method": "CreateTransaction",
     "RelativePath": "api/Transaction",
@@ -420,23 +360,58 @@
   },
   {
     "ContainingType": "UI.Controllers.UserController",
+    "Method": "GetProfile",
+    "RelativePath": "api/User/api-profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.UserController",
     "Method": "Login",
+    "RelativePath": "api/User/login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.UserController",
+    "Method": "LoginApi",
     "RelativePath": "api/User/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Entity.DTO.User.UserLoginDto",
-        "IsRequired": true
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "UI.Controllers.UserController",
-    "Method": "GetProfile",
+    "Method": "Logout",
+    "RelativePath": "api/User/logout",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.UserController",
+    "Method": "Profile",
     "RelativePath": "api/User/profile",
     "HttpMethod": "GET",
     "IsController": true,
@@ -448,14 +423,39 @@
     "ContainingType": "UI.Controllers.UserController",
     "Method": "Register",
     "RelativePath": "api/User/register",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UI.Controllers.UserController",
+    "Method": "RegisterApi",
+    "RelativePath": "api/User/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Entity.DTO.User.UserCreateDto",
-        "IsRequired": true
+        "Name": "firstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "lastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

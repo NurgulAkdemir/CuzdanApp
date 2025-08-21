@@ -2,74 +2,173 @@
     ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">CuzdanApp'e Hoş Geldiniz</h1>
-    <p class="lead">Finansal durumunuzu takip etmek ve yönetmek için güçlü araçlar.</p>
-    <hr class="my-4">
-    <p>Gelir ve giderlerinizi kaydedin, taksit planlarınızı oluşturun ve bakiye durumunuzu takip edin.</p>
-    
-    @if (User.Identity?.IsAuthenticated == true)
-    {
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">İşlemler</h5>
-                        <p class="card-text">Gelir ve gider kayıtlarınızı yönetin</p>
-                        <a asp-controller="Transaction" asp-action="Index" class="btn btn-light">Görüntüle</a>
-                    </div>
+<div class="hero-section">
+    <div class="container">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x mt-3" role="alert" style="z-index: 1000;">
+                <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="hero-title">CuzdanApp ile Finansal Özgürlüğünüzü Keşfedin</h1>
+                    <p class="hero-subtitle">Gelir ve giderlerinizi akıllıca yönetin, taksit planlarınızı organize edin ve bakiye durumunuzu gerçek zamanlı takip edin.</p>
+                    
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <div class="hero-buttons">
+                            <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-plus"></i> Yeni İşlem
+                            </a>
+                            <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-chart-line"></i> Dashboard
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="hero-buttons">
+                            <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-user-plus"></i> Hemen Başla
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-success mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Taksitler</h5>
-                        <p class="card-text">Taksit planlarınızı oluşturun ve takip edin</p>
-                        <a asp-controller="Installment" asp-action="Index" class="btn btn-light">Görüntüle</a>
+            <div class="col-lg-6">
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-wallet"></i>
+                        <span>Bakiye Takibi</span>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-info mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Bakiye</h5>
-                        <p class="card-text">Güncel bakiye durumunuzu kontrol edin</p>
-                        <a asp-controller="Balance" asp-action="Index" class="btn btn-light">Görüntüle</a>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Grafik Analiz</span>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-warning mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Profil</h5>
-                        <p class="card-text">Hesap bilgilerinizi güncelleyin</p>
-                        <a asp-controller="User" asp-action="Profile" class="btn btn-light">Görüntüle</a>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Taksit Planı</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Zaten hesabınız var mı?</h5>
-                        <p class="card-text">Giriş yaparak finansal durumunuzu takip etmeye başlayın.</p>
-                        <a asp-controller="User" asp-action="Login" class="btn btn-primary">Giriş Yap</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Yeni misiniz?</h5>
-                        <p class="card-text">Hemen kayıt olun ve finansal yönetiminizi başlatın.</p>
-                        <a asp-controller="User" asp-action="Register" class="btn btn-success">Kayıt Ol</a>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>İşlem Geçmişi</span>
                     </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
+</div>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="features-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h5>İşlemler</h5>
+                        <p>Gelir ve gider kayıtlarınızı kolayca yönetin</p>
+                        <a asp-controller="Transaction" asp-action="Index" class="feature-link">
+                            Görüntüle <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h5>Taksitler</h5>
+                        <p>Taksit planlarınızı oluşturun ve takip edin</p>
+                        <a asp-controller="Installment" asp-action="Index" class="feature-link">
+                            Görüntüle <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h5>Bakiye</h5>
+                        <p>Güncel bakiye durumunuzu kontrol edin</p>
+                        <a asp-controller="Balance" asp-action="Index" class="feature-link">
+                            Görüntüle <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h5>Profil</h5>
+                        <p>Hesap bilgilerinizi güncelleyin</p>
+                        <a asp-controller="User" asp-action="Profile" class="feature-link">
+                            Görüntüle <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="cta-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2>Finansal Yönetiminizi Bugün Başlatın</h2>
+                    <p class="lead">Ücretsiz hesap oluşturun ve finansal hedeflerinize ulaşın</p>
+                    <div class="cta-buttons">
+                        <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-rocket"></i> Ücretsiz Başla
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="features" class="features-overview py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Güvenli</h4>
+                    <p>Verileriniz şifrelenmiş olarak saklanır ve sadece siz erişebilirsiniz.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobil Uyumlu</h4>
+                    <p>Tüm cihazlarda mükemmel çalışır, her yerden erişim sağlar.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Analitik</h4>
+                    <p>Detaylı raporlar ve grafiklerle finansal durumunuzu analiz edin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

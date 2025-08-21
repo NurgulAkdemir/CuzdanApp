@@ -449,78 +449,6 @@
         }
       }
     },
-    "/api/JwtUsageExample/public": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/JwtUsageExample/protected": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/JwtUsageExample/admin": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/JwtUsageExample/premium": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/JwtUsageExample/custom-claim": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/JwtUsageExample/token-info": {
-      "get": {
-        "tags": [
-          "JwtUsageExample"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/Transaction": {
       "post": {
         "tags": [
@@ -646,26 +574,42 @@
         }
       }
     },
-    "/api/User/register": {
+    "/api/User/login": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "post": {
         "tags": [
           "User"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "email": {
+                  "style": "form"
+                },
+                "password": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -677,30 +621,82 @@
         }
       }
     },
-    "/api/User/login": {
+    "/api/User/register": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "post": {
         "tags": [
           "User"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UserLoginDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserLoginDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserLoginDto"
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "firstName": {
+                  "style": "form"
+                },
+                "lastName": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "password": {
+                  "style": "form"
+                }
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/profile": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/logout": {
+      "get": {
+        "tags": [
+          "User"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -731,7 +727,7 @@
         }
       }
     },
-    "/api/User/profile": {
+    "/api/User/api-profile": {
       "get": {
         "tags": [
           "User"
@@ -908,38 +904,6 @@
           },
           "type": {
             "$ref": "#/components/schemas/TransactionType"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserCreateDto": {
-        "type": "object",
-        "properties": {
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserLoginDto": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

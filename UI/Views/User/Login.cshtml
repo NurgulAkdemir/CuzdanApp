@@ -1,32 +1,93 @@
 @{
     ViewData["Title"] = "Giriş";
+    Layout = null;
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="mb-0">Giriş Yap</h4>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CuzdanApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Sol Panel - 3D Görsel Öğeler -->
+        <div class="auth-left-panel">
+            <div class="auth-logo">
+                <i class="fas fa-wallet"></i>
             </div>
-            <div class="card-body">
-                <form asp-action="LoginApi" method="post">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-posta</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Şifre</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                    </div>
-                </form>
-                <hr>
-                <div class="text-center">
-                    <p>Hesabınız yok mu? <a asp-action="Register">Kayıt olun</a></p>
+            <div class="auth-tagline">
+                CuzdanApp ile finansal özgürlüğünüzü hayal edin
+            </div>
+            <div class="auth-3d-elements">
+                <div class="auth-3d-container">
+                    <div class="auth-3d-cube"></div>
+                    <div class="auth-3d-sphere"></div>
+                    <div class="auth-3d-cylinder"></div>
                 </div>
             </div>
         </div>
+
+        <!-- Sağ Panel - Login Formu -->
+        <div class="auth-right-panel">
+            <h1 class="auth-title">Giriş Yap</h1>
+            
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>@TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            
+            <form asp-action="LoginApi" method="post">
+                <div class="auth-form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required placeholder="ornek@email.com">
+                </div>
+                
+                <div class="auth-form-group">
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                </button>
+            </form>
+            
+            <div class="auth-divider">
+                <span>veya</span>
+            </div>
+            
+            <button class="auth-social-btn facebook">
+                <i class="fab fa-facebook-f"></i> Facebook ile Giriş
+            </button>
+            
+            <button class="auth-social-btn twitter">
+                <i class="fab fa-twitter"></i> Twitter ile Giriş
+            </button>
+            
+            <div class="auth-link">
+                <p>Hesabınız yok mu? <a asp-action="Register">Kayıt olun</a></p>
+            </div>
+        </div>
     </div>
-</div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -20,6 +20,8 @@ namespace BusinessLogic.Services
         public async Task<UserResponseDto> CreateUserAsync(UserCreateDto dto)
         {
             // 1. Basit validasyon
+            if (string.IsNullOrWhiteSpace(dto.FirstName)) throw new ArgumentException("Ad boş olamaz.");
+            if (string.IsNullOrWhiteSpace(dto.LastName)) throw new ArgumentException("Soyad boş olamaz.");
             if (string.IsNullOrWhiteSpace(dto.Email)) throw new ArgumentException("Email boş olamaz.");
             if (string.IsNullOrWhiteSpace(dto.PasswordHash)) throw new ArgumentException("Şifre boş olamaz.");
 
@@ -34,7 +36,8 @@ namespace BusinessLogic.Services
             // 4. Entity oluştur
             var user = new User
             {
-                FullName = dto.UserName,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
                 Email = dto.Email,
                 PasswordHash = hashed
             };
@@ -46,6 +49,8 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 UserName = user.FullName,
                 Email = user.Email
             };
@@ -59,6 +64,8 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 UserName = user.FullName,
                 Email = user.Email
             };
@@ -75,6 +82,8 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 UserName = user.FullName,
                 Email = user.Email
             };
@@ -86,8 +95,11 @@ namespace BusinessLogic.Services
             if (user == null) return null;
 
             // güncellenecek alanlar
-            if (!string.IsNullOrWhiteSpace(dto.UserName))
-                user.FullName = dto.UserName;
+            if (!string.IsNullOrWhiteSpace(dto.FirstName))
+                user.FirstName = dto.FirstName;
+
+            if (!string.IsNullOrWhiteSpace(dto.LastName))
+                user.LastName = dto.LastName;
 
             if (!string.IsNullOrWhiteSpace(dto.Email) && dto.Email != user.Email)
             {
@@ -109,6 +121,8 @@ namespace BusinessLogic.Services
             return new UserResponseDto
             {
                 Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 UserName = user.FullName,
                 Email = user.Email
             };

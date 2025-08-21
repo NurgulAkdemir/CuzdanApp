@@ -8,6 +8,7 @@ using System;
 using UI.Services;
 using UI.DTOs;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace UI.Controllers
 {
@@ -73,73 +74,83 @@ namespace UI.Controllers
 
         // API Actions
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterApi(UserCreateDto dto)
+        public async Task<IActionResult> RegisterApi([FromForm] string firstName, [FromForm] string lastName, [FromForm] string email, [FromForm] string password)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || 
+                string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                return BadRequest(ModelState);
+                return BadRequest(new { error = "Tüm alanlar doldurulmalıdır." });
             }
 
             try
             {
-                var created = await _userService.CreateUserAsync(dto);
-                
-                // JWT token oluştur
-                var token = _jwtService.GenerateToken(created.Id, created.UserName, created.Email);
-                var expiresAt = DateTime.UtcNow.AddMinutes(60);
-
-                var response = new RegisterResponseDto
+                var dto = new UserCreateDto
                 {
-                    Token = token,
-                    UserName = created.UserName,
-                    Email = created.Email,
-                    UserId = created.Id,
-                    ExpiresAt = expiresAt,
-                    Message = "Kullanıcı başarıyla oluşturuldu."
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Email = email,
+                    PasswordHash = password,
+                    UserName = $"{firstName} {lastName}".Trim()
                 };
 
-                return CreatedAtAction(nameof(Get), new { id = created.Id }, response);
+                var created = await _userService.CreateUserAsync(dto);
+                
+                // Başarılı kayıt sonrası giriş sayfasına yönlendir
+                TempData["SuccessMessage"] = "Hesabınız başarıyla oluşturuldu! Şimdi giriş yapabilirsiniz.";
+                return RedirectToAction("Login");
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Register");
             }
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginApi(UserLoginDto dto)
+        public async Task<IActionResult> LoginApi([FromForm] string email, [FromForm] string password)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                return BadRequest(ModelState);
+                TempData["ErrorMessage"] = "E-posta ve şifre doldurulmalıdır.";
+                return RedirectToAction("Login");
             }
 
             try
             {
+                var dto = new UserLoginDto
+                {
+                    Email = email,
+                    Password = password
+                };
+
                 var user = await _userService.AuthenticateAsync(dto);
                 if (user == null) 
                 {
-                    return Unauthorized(new { error = "Geçersiz e-posta veya şifre." });
+                    TempData["ErrorMessage"] = "Geçersiz e-posta veya şifre.";
+                    return RedirectToAction("Login");
                 }
 
-                // JWT token oluştur
+                // JWT token oluştur ve cookie'ye kaydet
                 var token = _jwtService.GenerateToken(user.Id, user.UserName, user.Email);
                 var expiresAt = DateTime.UtcNow.AddMinutes(60);
-
-                var response = new LoginResponseDto
+                
+                // Token'ı cookie'ye kaydet
+                Response.Cookies.Append("jwt_token", token, new CookieOptions
                 {
-                    Token = token,
-                    UserName = user.UserName,
-                    Email = user.Email,
-                    UserId = user.Id,
-                    ExpiresAt = expiresAt
-                };
+                    HttpOnly = true,
+                    Secure = false, // HTTPS kullanıyorsanız true yapın
+                    SameSite = SameSiteMode.Strict,
+                    Expires = expiresAt
+                });
 
-                return Ok(response);
+                // Başarılı giriş sonrası ana sayfaya yönlendir
+                TempData["SuccessMessage"] = $"Hoş geldiniz, {user.UserName}!";
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Login");
             }
         }
 
