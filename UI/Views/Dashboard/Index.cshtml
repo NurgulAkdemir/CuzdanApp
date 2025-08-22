@@ -1,0 +1,217 @@
+@model UI.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <!-- Hoş Geldin Mesajı -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="dashboard-welcome fade-in">
+                <h4 class="mb-0">
+                    <i class="fas fa-user-circle me-2"></i>
+                    Hoş geldin, @(Model.User?.FirstName ?? "Kullanıcı")!
+                </h4>
+                <p class="mb-0 mt-2">Finansal durumunuzu takip edin ve hedeflerinize ulaşın.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana İstatistik Kartları -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="dashboard-stats-card slide-in-left" style="animation-delay: 0.1s;">
+                <div class="card-icon text-success">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="card-value text-success">@Model.CurrentBalance.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</div>
+                <div class="card-label">Mevcut Bakiye</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="dashboard-stats-card slide-in-left" style="animation-delay: 0.2s;">
+                <div class="card-icon text-info">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="card-value text-info">@Model.TotalIncome.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</div>
+                <div class="card-label">Toplam Gelir</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="dashboard-stats-card slide-in-left" style="animation-delay: 0.3s;">
+                <div class="card-icon text-danger">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="card-value text-danger">@Model.TotalExpense.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</div>
+                <div class="card-label">Toplam Gider</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="dashboard-stats-card slide-in-left" style="animation-delay: 0.4s;">
+                <div class="card-icon text-warning">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="card-value text-warning">@Model.TotalRemainingInstallment.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</div>
+                <div class="card-label">Kalan Taksit</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İşlemler ve Taksitler -->
+    <div class="row mb-4">
+        <!-- Son İşlemler -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 slide-in-left" style="animation-delay: 0.5s;">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-exchange-alt me-2"></i>
+                        Son İşlemler
+                    </h5>
+                    <a asp-controller="Transaction" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                        Tümünü Gör
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentTransactions.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var transaction in Model.RecentTransactions)
+                            {
+                                <div class="list-group-item dashboard-transaction-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">@transaction.Category</h6>
+                                            <small class="text-muted">@transaction.Description</small>
+                                            <br>
+                                            <small class="text-muted">@transaction.TransactionDate.ToString("dd.MM.yyyy")</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <span class="@(transaction.Type == Entity.TransactionType.Income ? "text-success" : "text-danger") fw-bold">
+                                                @(transaction.Type == Entity.TransactionType.Income ? "+" : "-")@transaction.Amount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))
+                                            </span>
+                                            <br>
+                                            <span class="badge @(transaction.Type == Entity.TransactionType.Income ? "bg-success" : "bg-danger")">
+                                                @(transaction.Type == Entity.TransactionType.Income ? "Gelir" : "Gider")
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-inbox fa-2x text-muted mb-3"></i>
+                            <p class="text-muted">Henüz işlem bulunmuyor</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Aktif Taksitler -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 slide-in-right" style="animation-delay: 0.6s;">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-calendar-check me-2"></i>
+                        Aktif Taksitler
+                    </h5>
+                    <a asp-controller="Installment" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                        Tümünü Gör
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if (Model.ActiveInstallments.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var installment in Model.ActiveInstallments)
+                            {
+                                <div class="list-group-item dashboard-installment-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0">@installment.Description</h6>
+                                        <span class="badge bg-warning">@installment.RemainingInstallments kalan</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <small class="text-muted">Toplam Tutar:</small><br>
+                                            <strong>@installment.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">Kalan Tutar:</small><br>
+                                            <strong class="text-danger">@installment.RemainingAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</strong>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-installment-progress mt-2">
+                                        @{
+                                            var progressPercentage = ((installment.TotalAmount - installment.RemainingAmount) / installment.TotalAmount) * 100;
+                                        }
+                                        <div class="progress-bar bg-success" style="width: @progressPercentage%"></div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-calendar-times fa-2x text-muted mb-3"></i>
+                            <p class="text-muted">Aktif taksit bulunmuyor</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Özet Bilgiler -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card slide-in-left" style="animation-delay: 0.7s;">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-chart-pie me-2"></i>
+                        Genel Özet
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <h4 class="text-primary">@Model.TransactionCount</h4>
+                            <p class="text-muted">Toplam İşlem</p>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-warning">@Model.InstallmentCount</h4>
+                            <p class="text-muted">Toplam Taksit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card dashboard-quick-actions slide-in-right" style="animation-delay: 0.8s;">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Hızlı Erişim
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Transaction" asp-action="Create" class="btn btn-outline-primary">
+                            <i class="fas fa-plus me-2"></i>Yeni İşlem Ekle
+                        </a>
+                        <a asp-controller="Installment" asp-action="Create" class="btn btn-outline-warning">
+                            <i class="fas fa-calendar-plus me-2"></i>Yeni Taksit Ekle
+                        </a>
+                        <a asp-controller="Balance" asp-action="Index" class="btn btn-outline-success">
+                            <i class="fas fa-coins me-2"></i>Bakiye Detayları
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

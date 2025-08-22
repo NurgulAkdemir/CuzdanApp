@@ -93,6 +93,23 @@ namespace BusinessLogic.Services
             });
         }
 
+        public async Task<IEnumerable<TransactionResponseDto>> GetTransactionsByUserIdAsync(int userId)
+        {
+            var transactions = await _transactionRepository.GetAllAsync();
+            var userTransactions = transactions.Where(t => t.UserId == userId);
+            
+            return userTransactions.Select(t => new TransactionResponseDto
+            {
+                Id = t.Id,
+                UserId = t.UserId,
+                Amount = t.Amount,
+                Type = t.Type,
+                Category = t.Category,
+                Description = t.Description,
+                TransactionDate = t.Date
+            });
+        }
+
         public async Task<TransactionResponseDto> UpdateTransactionAsync(int id, TransactionUpdateDto dto)
         {
             var transaction = await _transactionRepository.GetByIdAsync(id);

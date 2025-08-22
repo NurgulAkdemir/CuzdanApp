@@ -13,6 +13,7 @@ namespace BusinessLogic.Interfaces
         Task<TransactionResponseDto> CreateTransactionAsync(TransactionCreateDto dto);
         Task<TransactionResponseDto> GetTransactionByIdAsync(int id);
         Task<IEnumerable<TransactionResponseDto>> GetAllTransactionsAsync();
+        Task<IEnumerable<TransactionResponseDto>> GetTransactionsByUserIdAsync(int userId);
         Task<TransactionResponseDto> UpdateTransactionAsync(int id, TransactionUpdateDto dto);
         Task<bool> DeleteTransactionAsync(int id);
     }

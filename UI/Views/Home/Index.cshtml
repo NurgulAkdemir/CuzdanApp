@@ -18,25 +18,14 @@
                     <h1 class="hero-title">CuzdanApp ile Finansal Özgürlüğünüzü Keşfedin</h1>
                     <p class="hero-subtitle">Gelir ve giderlerinizi akıllıca yönetin, taksit planlarınızı organize edin ve bakiye durumunuzu gerçek zamanlı takip edin.</p>
                     
-                    @if (User.Identity?.IsAuthenticated == true)
-                    {
-                        <div class="hero-buttons">
-                            <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary btn-lg me-3">
-                                <i class="fas fa-plus"></i> Yeni İşlem
-                            </a>
-                            <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light btn-lg">
-                                <i class="fas fa-chart-line"></i> Dashboard
-                            </a>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="hero-buttons">
-                            <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
-                                <i class="fas fa-user-plus"></i> Hemen Başla
-                            </a>
-                        </div>
-                    }
+                    <div class="hero-buttons">
+                        <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-user-plus"></i> Hemen Başla
+                        </a>
+                        <a asp-controller="User" asp-action="Login" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -63,81 +52,24 @@
     </div>
 </div>
 
-@if (User.Identity?.IsAuthenticated == true)
-{
-    <div class="features-section py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <h5>İşlemler</h5>
-                        <p>Gelir ve gider kayıtlarınızı kolayca yönetin</p>
-                        <a asp-controller="Transaction" asp-action="Index" class="feature-link">
-                            Görüntüle <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <h5>Taksitler</h5>
-                        <p>Taksit planlarınızı oluşturun ve takip edin</p>
-                        <a asp-controller="Installment" asp-action="Index" class="feature-link">
-                            Görüntüle <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <h5>Bakiye</h5>
-                        <p>Güncel bakiye durumunuzu kontrol edin</p>
-                        <a asp-controller="Balance" asp-action="Index" class="feature-link">
-                            Görüntüle <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <h5>Profil</h5>
-                        <p>Hesap bilgilerinizi güncelleyin</p>
-                        <a asp-controller="User" asp-action="Profile" class="feature-link">
-                            Görüntüle <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+<div class="cta-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2>Finansal Yönetiminizi Bugün Başlatın</h2>
+                <p class="lead">Ücretsiz hesap oluşturun ve finansal hedeflerinize ulaşın</p>
+                <div class="cta-buttons">
+                    <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-rocket"></i> Ücretsiz Başla
+                    </a>
+                    <a asp-controller="User" asp-action="Login" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-sign-in-alt"></i> Zaten Hesabım Var
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-}
-else
-{
-    <div class="cta-section py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h2>Finansal Yönetiminizi Bugün Başlatın</h2>
-                    <p class="lead">Ücretsiz hesap oluşturun ve finansal hedeflerinize ulaşın</p>
-                    <div class="cta-buttons">
-                        <a asp-controller="User" asp-action="Register" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-rocket"></i> Ücretsiz Başla
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-}
+</div>
 
 <div id="features" class="features-overview py-5">
     <div class="container">

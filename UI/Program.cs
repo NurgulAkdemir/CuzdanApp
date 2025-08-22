@@ -11,8 +11,10 @@ using Entity.DTO.Transaction;
 using Entity.DTO.Balance;
 using Entity.DTO.Installment;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 using UI.Models;
 using UI.Services;
 using Microsoft.OpenApi.Models;
@@ -23,25 +25,19 @@ var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
-// JWT Authentication
-builder.Services.AddAuthentication(options =>
+// Cookie Authentication
+builder.Services.AddAuthentication("Cookies")
+.AddCookie("Cookies", options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.SecretKey ?? "")),
-        ValidateIssuer = true,
-        ValidIssuer = jwtSettings?.Issuer,
-        ValidateAudience = true,
-        ValidAudience = jwtSettings?.Audience,
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
+    options.LoginPath = "/User/Login";
+    options.LogoutPath = "/User/Logout";
+    options.AccessDeniedPath = "/User/Login";
+    options.Cookie.Name = "CuzdanApp.Auth";
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None; // HTTPS kullanıyorsanız SameAsRequest yapın
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.SlidingExpiration = true;
 });
 
 // Authorization

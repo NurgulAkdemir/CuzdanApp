@@ -45,6 +45,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = dto.TotalInstallments,
                 PerInstallmentAmount = perInstallmentAmount,
                 TotalAmount = totalAmount,
+                RemainingAmount = totalAmount,
+                Description = dto.Description ?? "Taksitli alışveriş",
                 CreatedAt = DateTime.UtcNow,
                 NextPaymentDate = dto.NextPaymentDate ?? DateTime.UtcNow.AddMonths(1),
                 IsActive = true
@@ -63,6 +65,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
                 TotalAmount = installment.TotalAmount,
+                RemainingAmount = installment.RemainingAmount,
+                Description = installment.Description,
                 CreatedAt = installment.CreatedAt,
                 NextPaymentDate = installment.NextPaymentDate,
                 IsActive = installment.IsActive
@@ -85,6 +89,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
                 TotalAmount = installment.TotalAmount,
+                RemainingAmount = installment.RemainingAmount,
+                Description = installment.Description,
                 CreatedAt = installment.CreatedAt,
                 NextPaymentDate = installment.NextPaymentDate,
                 IsActive = installment.IsActive
@@ -106,6 +112,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = i.RemainingInstallments,
                 PerInstallmentAmount = i.PerInstallmentAmount,
                 TotalAmount = i.TotalAmount,
+                RemainingAmount = i.RemainingAmount,
+                Description = i.Description,
                 CreatedAt = i.CreatedAt,
                 NextPaymentDate = i.NextPaymentDate,
                 IsActive = i.IsActive
@@ -127,6 +135,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = i.RemainingInstallments,
                 PerInstallmentAmount = i.PerInstallmentAmount,
                 TotalAmount = i.TotalAmount,
+                RemainingAmount = i.RemainingAmount,
+                Description = i.Description,
                 CreatedAt = i.CreatedAt,
                 NextPaymentDate = i.NextPaymentDate,
                 IsActive = i.IsActive
@@ -144,6 +154,8 @@ namespace BusinessLogic.Services
             installment.InterestRate = dto.InterestRate;
             installment.InterestType = dto.InterestType;
             installment.TotalInstallments = dto.TotalInstallments;
+            installment.OriginalAmount = dto.OriginalAmount;
+            installment.Description = dto.Description;
             installment.NextPaymentDate = dto.NextPaymentDate;
             installment.IsActive = dto.IsActive;
 
@@ -164,6 +176,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
                 TotalAmount = installment.TotalAmount,
+                RemainingAmount = installment.RemainingAmount,
+                Description = installment.Description,
                 CreatedAt = installment.CreatedAt,
                 NextPaymentDate = installment.NextPaymentDate,
                 IsActive = installment.IsActive
@@ -204,6 +218,8 @@ namespace BusinessLogic.Services
 
             // Taksit bilgilerini güncelle
             installment.RemainingInstallments--;
+            installment.RemainingAmount = installment.RemainingAmount - paymentAmount;
+            
             if (installment.RemainingInstallments > 0)
             {
                 installment.NextPaymentDate = installment.NextPaymentDate?.AddMonths(1);
@@ -212,6 +228,7 @@ namespace BusinessLogic.Services
             {
                 installment.IsActive = false;
                 installment.NextPaymentDate = null;
+                installment.RemainingAmount = 0;
             }
 
             await _installmentRepository.UpdateAsync(installment);
@@ -227,6 +244,8 @@ namespace BusinessLogic.Services
                 RemainingInstallments = installment.RemainingInstallments,
                 PerInstallmentAmount = installment.PerInstallmentAmount,
                 TotalAmount = installment.TotalAmount,
+                RemainingAmount = installment.RemainingAmount,
+                Description = installment.Description,
                 CreatedAt = installment.CreatedAt,
                 NextPaymentDate = installment.NextPaymentDate,
                 IsActive = installment.IsActive

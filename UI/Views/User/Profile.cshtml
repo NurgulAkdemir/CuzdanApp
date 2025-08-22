@@ -1,73 +1,113 @@
-@model Entity.User
+@model UserResponseDto
 @{
     ViewData["Title"] = "Profil";
+    Layout = "_LayoutApp";
 }
 
-<div class="row">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="mb-0">Profil Bilgileri</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-user-circle"></i> Profil Bilgileri</h2>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Ad Soyad:</label>
-                            <p class="form-control-plaintext">@Model.FullName</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">E-posta:</label>
-                            <p class="form-control-plaintext">@Model.Email</p>
-                        </div>
-                    </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user me-2"></i>
+                        Kişisel Bilgiler
+                    </h5>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Hesap Türü:</label>
-                            <p class="form-control-plaintext">@Model.Role</p>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Ad:</label>
+                                <p class="form-control-plaintext">@Model.FirstName</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Soyad:</label>
+                                <p class="form-control-plaintext">@Model.LastName</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Kayıt Tarihi:</label>
-                            <p class="form-control-plaintext">@Model.CreatedAt.ToString("dd.MM.yyyy")</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Tam Ad:</label>
+                                <p class="form-control-plaintext">@Model.UserName</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">E-posta:</label>
+                                <p class="form-control-plaintext">@Model.Email</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">E-posta Onayı:</label>
-                            <p class="form-control-plaintext">
-                                @if (Model.EmailConfirmed)
-                                {
-                                    <span class="badge bg-success">Onaylandı</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-warning">Onaylanmadı</span>
-                                }
-                            </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Kullanıcı ID:</label>
+                                <p class="form-control-plaintext">@Model.Id</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">Hızlı İşlemler</h5>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-tools me-2"></i>
+                        Hızlı İşlemler
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Yeni İşlem
+                        </a>
+                        <a asp-controller="Installment" asp-action="Create" class="btn btn-success">
+                            <i class="fas fa-calendar-plus me-2"></i>Taksit Oluştur
+                        </a>
+                        <a asp-controller="Balance" asp-action="Create" class="btn btn-info">
+                            <i class="fas fa-coins me-2"></i>Bakiye Ekle
+                        </a>
+                        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard'a Dön
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="d-grid gap-2">
-                    <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary">Yeni İşlem</a>
-                    <a asp-controller="Installment" asp-action="Create" class="btn btn-success">Taksit Oluştur</a>
-                    <a asp-controller="Balance" asp-action="Update" class="btn btn-info">Bakiye Güncelle</a>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-shield-alt me-2"></i>
+                        Hesap Güvenliği
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-warning" disabled>
+                            <i class="fas fa-key me-2"></i>Şifre Değiştir
+                        </button>
+                        <button class="btn btn-outline-info" disabled>
+                            <i class="fas fa-envelope me-2"></i>E-posta Güncelle
+                        </button>
+                    </div>
+                    <small class="text-muted mt-2 d-block">
+                        Bu özellikler yakında eklenecektir.
+                    </small>
                 </div>
             </div>
         </div>

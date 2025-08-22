@@ -18,8 +18,10 @@ namespace Entity.DTO.Installment
         public int RemainingInstallments { get; set; }
         public decimal PerInstallmentAmount { get; set; }
         public decimal TotalAmount { get; set; }
+        public decimal RemainingAmount { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? NextPaymentDate { get; set; }
         public bool IsActive { get; set; }
+        public string Description { get; set; }
     }
 }

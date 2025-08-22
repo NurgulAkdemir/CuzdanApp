@@ -15,6 +15,11 @@ namespace UI.Controllers
 
         public IActionResult Index()
         {
+            // Eğer kullanıcı giriş yapmışsa dashboard'a yönlendir
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
 

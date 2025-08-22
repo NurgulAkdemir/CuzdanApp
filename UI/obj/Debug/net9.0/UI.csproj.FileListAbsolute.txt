@@ -396,5 +396,4 @@ C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\o04pgmm44c-037e0260e3.
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\p5ipi26wvb-etwjw5eufw.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\spu7xhu3li-i0z0fr9ix5.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\foralvkbms-9cwhwpbzkp.gz
-C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-l2lwmigkuw.gz
-C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-uth5tap1dw.gz

@@ -14,6 +14,7 @@ namespace Entity.DTO.Installment
         public decimal InterestRate { get; set; }
         public InterestType InterestType { get; set; } = InterestType.Annual; // Varsayılan yıllık
         public int TotalInstallments { get; set; }
+        public string Description { get; set; } // Taksit açıklaması
         public DateTime? NextPaymentDate { get; set; }
     }
 }

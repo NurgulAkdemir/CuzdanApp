@@ -22,6 +22,8 @@ namespace Entity
         public int RemainingInstallments { get; set; }
         public decimal PerInstallmentAmount { get; set; } // hesaplanmış (faiz dahil)
         public decimal TotalAmount { get; set; } // toplam ödenecek (faizli)
+        public decimal RemainingAmount { get; set; } // kalan ödenecek tutar
+        public string Description { get; set; } // taksit açıklaması
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? NextPaymentDate { get; set; } // sonraki ödeme zamanı
         public bool IsActive { get; set; } = true;

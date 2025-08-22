@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -50,11 +54,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "UI\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "UI\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T14:59:06.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "UI\\wwwroot\\js\\site.js",
@@ -66,20 +83,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "UI\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\wwwroot\\css\\site.css",
               "RelativeToolTip": "UI\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAALwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-20T14:55:33.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T14:55:33.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\Home\\Index.cshtml",
@@ -91,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Register.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Register.cshtml",
@@ -103,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Profile.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Profile.cshtml",
@@ -115,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Login.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Login.cshtml",
@@ -123,12 +139,11 @@
               "RelativeToolTip": "UI\\Views\\User\\Login.cshtml",
               "ViewState": "AgIAAEEAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-20T12:57:53.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T12:57:53.275Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "main.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\main.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\main.tsx",
@@ -140,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Login.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\pages\\Login.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\pages\\Login.tsx",
@@ -152,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "App.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\App.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\App.tsx",
@@ -164,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\index.css",
               "RelativeDocumentMoniker": "frontend\\src\\index.css",

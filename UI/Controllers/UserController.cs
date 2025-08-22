@@ -9,11 +9,10 @@ using UI.Services;
 using UI.DTOs;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication;
 
 namespace UI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -27,21 +26,18 @@ namespace UI.Controllers
 
         // MVC Actions
         [HttpGet]
-        [Route("login")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpGet]
-        [Route("register")]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpGet]
-        [Route("profile")]
         public async Task<IActionResult> Profile()
         {
             try
@@ -64,16 +60,16 @@ namespace UI.Controllers
         }
 
         [HttpGet]
-        [Route("logout")]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            // JWT token'ı temizle
-            Response.Cookies.Delete("jwt_token");
+            // Kullanıcıyı sign out yap
+            await HttpContext.SignOutAsync("Cookies");
             return RedirectToAction("Index", "Home");
         }
 
         // API Actions
-        [HttpPost("register")]
+        [HttpPost]
+        [ActionName("RegisterApi")]
         public async Task<IActionResult> RegisterApi([FromForm] string firstName, [FromForm] string lastName, [FromForm] string email, [FromForm] string password)
         {
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || 
@@ -106,7 +102,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost]
+        [ActionName("LoginApi")]
         public async Task<IActionResult> LoginApi([FromForm] string email, [FromForm] string password)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
@@ -130,22 +127,30 @@ namespace UI.Controllers
                     return RedirectToAction("Login");
                 }
 
-                // JWT token oluştur ve cookie'ye kaydet
+                // JWT token oluştur
                 var token = _jwtService.GenerateToken(user.Id, user.UserName, user.Email);
-                var expiresAt = DateTime.UtcNow.AddMinutes(60);
                 
-                // Token'ı cookie'ye kaydet
-                Response.Cookies.Append("jwt_token", token, new CookieOptions
+                // Claims oluştur
+                var claims = new List<Claim>
                 {
-                    HttpOnly = true,
-                    Secure = false, // HTTPS kullanıyorsanız true yapın
-                    SameSite = SameSiteMode.Strict,
-                    Expires = expiresAt
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Email, user.Email)
+                };
+                
+                var identity = new ClaimsIdentity(claims, "Cookies");
+                var principal = new ClaimsPrincipal(identity);
+                
+                // Kullanıcıyı sign in yap
+                await HttpContext.SignInAsync("Cookies", principal, new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(60)
                 });
 
-                // Başarılı giriş sonrası ana sayfaya yönlendir
+                // Başarılı giriş sonrası dashboard'a yönlendir
                 TempData["SuccessMessage"] = $"Hoş geldiniz, {user.UserName}!";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -154,7 +159,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("api/user/{id}")]
         public async Task<IActionResult> Get(int id)
         {
             try
@@ -169,7 +175,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpGet("api-profile")]
+        [HttpGet]
+        [Route("api/user/profile")]
         public async Task<IActionResult> GetProfile()
         {
             try
