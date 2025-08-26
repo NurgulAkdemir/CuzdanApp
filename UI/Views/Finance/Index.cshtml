@@ -1,186 +1,162 @@
 @{
-    ViewData["Title"] = "Bireysel Finans";
+    ViewData["Title"] = "Finansal Analiz";
+    Layout = "_Layout";
 }
 
-<div class="finance-hero-section">
-    <div class="container">
-        <div class="row align-items-center min-vh-75">
-            <div class="col-lg-6">
-                <div class="finance-content">
-                    <h1 class="finance-title">Bireysel Finans Yönetimi</h1>
-                    <p class="finance-subtitle">Kişisel finansal hedeflerinize ulaşmak için profesyonel araçlar ve rehberlik</p>
-                    <div class="finance-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Bütçe planlama ve takip</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Yatırım stratejileri</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Borç yönetimi</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="finance-visual">
-                    <div class="finance-chart-container">
-                        <div class="chart-circle">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="chart-data">
-                            <div class="data-point income">
-                                <span class="data-label">Gelir</span>
-                                <span class="data-value">₺15,000</span>
-                            </div>
-                            <div class="data-point expense">
-                                <span class="data-label">Gider</span>
-                                <span class="data-value">₺8,500</span>
-                            </div>
-                            <div class="data-point savings">
-                                <span class="data-label">Tasarruf</span>
-                                <span class="data-value">₺6,500</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-header text-center mb-5">
+                <h1 class="display-4 text-primary">
+                    <i class="fas fa-chart-line me-3"></i>Finansal Analiz
+                </h1>
+                <p class="lead text-muted">Finansal durumunuzu analiz edin ve geleceğinizi planlayın</p>
             </div>
         </div>
     </div>
-</div>
 
-<div class="finance-tools-section py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2>Finansal Araçlarımız</h2>
-            <p class="lead">Kişisel finansal durumunuzu analiz etmek ve iyileştirmek için güçlü araçlar</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-calculator"></i>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-calculator fa-3x text-primary"></i>
                     </div>
-                    <h4>Bütçe Hesaplayıcı</h4>
-                    <p>Aylık gelir ve giderlerinizi analiz edin, bütçe hedeflerinizi belirleyin ve tasarruf oranınızı hesaplayın.</p>
-                    <div class="tool-features">
-                        <span class="tool-feature">Gelir analizi</span>
-                        <span class="tool-feature">Gider kategorileri</span>
-                        <span class="tool-feature">Tasarruf hedefleri</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4>Yatırım Analizi</h4>
-                    <p>Farklı yatırım seçeneklerini karşılaştırın, risk analizi yapın ve uzun vadeli finansal planınızı oluşturun.</p>
-                    <div class="tool-features">
-                        <span class="tool-feature">Risk değerlendirmesi</span>
-                        <span class="tool-feature">Getiri hesaplama</span>
-                        <span class="tool-feature">Portföy çeşitlendirme</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h4>Borç Yönetimi</h4>
-                    <p>Kredi kartı borçlarınızı, kredilerinizi ve taksit ödemelerinizi organize edin ve borç stratejinizi planlayın.</p>
-                    <div class="tool-features">
-                        <span class="tool-feature">Borç konsolidasyonu</span>
-                        <span class="tool-feature">Ödeme planları</span>
-                        <span class="tool-feature">Faiz hesaplama</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="finance-education-section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="education-content">
-                    <h2>Finansal Okuryazarlık</h2>
-                    <p class="lead">Finansal kararlarınızı daha bilinçli almak için eğitim materyalleri ve rehberlik</p>
-                    <div class="education-topics">
-                        <div class="topic-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <h5>Temel Finans</h5>
-                                <p>Gelir, gider, tasarruf ve yatırım kavramları</p>
-                            </div>
-                        </div>
-                        <div class="topic-item">
-                            <i class="fas fa-book"></i>
-                            <div>
-                                <h5>Yatırım Stratejileri</h5>
-                                <p>Risk yönetimi ve portföy çeşitlendirme</p>
-                            </div>
-                        </div>
-                        <div class="topic-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <div>
-                                <h5>Finansal Güvenlik</h5>
-                                <p>Dijital güvenlik ve dolandırıcılık koruması</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="education-visual">
-                    <div class="progress-container">
-                        <div class="progress-item">
-                            <div class="progress-label">Finansal Hedefler</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%"></div>
-                            </div>
-                            <div class="progress-value">75%</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">Tasarruf Oranı</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 60%"></div>
-                            </div>
-                            <div class="progress-value">60%</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">Yatırım Bilgisi</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 45%"></div>
-                            </div>
-                            <div class="progress-value">45%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="finance-cta-section py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2>Finansal Geleceğinizi Bugün Planlayın</h2>
-                <p class="lead">Ücretsiz hesap oluşturun ve kişisel finansal yönetiminizi başlatın</p>
-                <div class="cta-buttons">
-                    <a href="/User/Register" class="btn btn-primary btn-lg me-3">
-                        <i class="fas fa-rocket"></i> Hemen Başla
+                    <h5 class="card-title">Taksit Hesaplama</h5>
+                    <p class="card-text text-muted">Kredi ve taksit ödemelerinizi hesaplayın, en uygun seçenekleri bulun.</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-calculator me-2"></i>Hesapla
                     </a>
-                    <a href="/Home/About" class="btn btn-outline-primary btn-lg">
-                        <i class="fas fa-info-circle"></i> Daha Fazla Bilgi
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-chart-pie fa-3x text-success"></i>
+                    </div>
+                    <h5 class="card-title">Gelir-Gider Analizi</h5>
+                    <p class="card-text text-muted">Gelir ve giderlerinizi kategorilere göre analiz edin, tasarruf fırsatlarını keşfedin.</p>
+                    <a href="#" class="btn btn-success">
+                        <i class="fas fa-chart-pie me-2"></i>Analiz Et
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-piggy-bank fa-3x text-warning"></i>
+                    </div>
+                    <h5 class="card-title">Tasarruf Planı</h5>
+                    <p class="card-text text-muted">Hedeflerinize ulaşmak için kişiselleştirilmiş tasarruf planları oluşturun.</p>
+                    <a href="#" class="btn btn-warning text-white">
+                        <i class="fas fa-piggy-bank me-2"></i>Plan Oluştur
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-lightbulb me-2"></i>Finansal İpuçları
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Bütçe Yapın:</strong> Aylık gelir ve giderlerinizi takip edin
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Acil Durum Fonu:</strong> En az 3 aylık giderinizi karşılayacak tasarruf yapın
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Yatırım Çeşitlendirin:</strong> Riskleri dağıtmak için farklı yatırım araçları kullanın
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Borç Yönetimi:</strong> Yüksek faizli borçları öncelikli olarak ödeyin
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-target me-2"></i>Finansal Hedefler
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6>Kısa Vadeli (1-3 yıl)</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-arrow-right me-2"></i>Acil durum fonu oluşturma</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>Küçük borçları ödeme</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>Yıllık tatil planı</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Orta Vadeli (3-10 yıl)</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-arrow-right me-2"></i>Ev alımı için birikim</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>Çocuk eğitimi fonu</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>İş kurma sermayesi</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>Uzun Vadeli (10+ yıl)</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-arrow-right me-2"></i>Emeklilik planı</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>Miras planlaması</li>
+                            <li><i class="fas fa-arrow-right me-2"></i>Varlık transferi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-chart-bar me-2"></i>Finansal Sağlık Kontrolü
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Güçlü Yönler</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-plus-circle text-success me-2"></i>Düzenli gelir</li>
+                                <li><i class="fas fa-plus-circle text-success me-2"></i>Düşük borç oranı</li>
+                                <li><i class="fas fa-plus-circle text-success me-2"></i>Diversifikasyon</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-danger">Geliştirilecek Alanlar</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-minus-circle text-warning me-2"></i>Acil durum fonu</li>
+                                <li><i class="fas fa-minus-circle text-warning me-2"></i>Yatırım çeşitliliği</li>
+                                <li><i class="fas fa-minus-circle text-warning me-2"></i>Sigorta kapsamı</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

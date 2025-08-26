@@ -1,0 +1,176 @@
+@model UI.Models.BalanceIndexViewModel
+@{
+    ViewData["Title"] = "Bakiyem";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Bakiye Ekle
+                    </a>
+                </div>
+                <h4 class="page-title">Bakiyem</h4>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card dashboard-stats-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">@Model.CurrentBalance.ToString("C")</h3>
+                            <p class="text-muted mb-0">Mevcut Bakiye</p>
+                        </div>
+                        <div class="text-end">
+                            <i class="fas fa-wallet fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card dashboard-card">
+                <div class="card-header">
+                    <h4 class="card-title">Bakiye Geçmişi</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.BalanceHistory.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        <th>Açıklama</th>
+                                        <th>Tutar</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var balance in Model.BalanceHistory)
+                                    {
+                                        <tr class="dashboard-transaction-item">
+                                            <td>@balance.Date.ToString("dd.MM.yyyy")</td>
+                                            <td>@balance.Description</td>
+                                            <td>
+                                                <span class="text-success">+@balance.Amount.ToString("C")</span>
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@balance.Id" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <form asp-action="Delete" asp-route-id="@balance.Id" method="post" style="display: inline;">
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                                            onclick="return confirm('Bu bakiyeyi silmek istediğinizden emin misiniz?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-wallet fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Henüz bakiye geçmişi bulunmuyor</h5>
+                            <p class="text-muted">İlk bakiyenizi eklemek için "Bakiye Ekle" butonuna tıklayın.</p>
+                            <a asp-action="Create" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> İlk Bakiyeyi Ekle
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card dashboard-card">
+                <div class="card-header">
+                    <h4 class="card-title">Son İşlemler</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentTransactions.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        <th>Tür</th>
+                                        <th>Kategori</th>
+                                        <th>Açıklama</th>
+                                        <th>Tutar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var transaction in Model.RecentTransactions)
+                                    {
+                                        <tr class="dashboard-transaction-item">
+                                            <td>@transaction.TransactionDate.ToString("dd.MM.yyyy")</td>
+                                            <td>
+                                                @if (transaction.Type == Entity.TransactionType.Income)
+                                                {
+                                                    <span class="badge bg-success">Gelir</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">Gider</span>
+                                                }
+                                            </td>
+                                            <td>@transaction.Category</td>
+                                            <td>@transaction.Description</td>
+                                            <td>
+                                                <span class="@(transaction.Type == Entity.TransactionType.Income ? "text-success" : "text-danger")">
+                                                    @(transaction.Type == Entity.TransactionType.Income ? "+" : "-")@transaction.Amount.ToString("C")
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-receipt fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Henüz işlem bulunmuyor</h5>
+                            <p class="text-muted">İlk işleminizi eklemek için Dashboard'daki "Yeni İşlem" butonuna tıklayın.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

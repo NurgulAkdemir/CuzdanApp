@@ -17,4 +17,3 @@ namespace DAL.Repositories
         IQueryable<T> Query(); // advanced sorgular için (dikkat: dışarıya IQueryable veriyorsun)
     }
 }
-

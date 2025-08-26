@@ -1,0 +1,98 @@
+@model Entity.DTO.Transaction.TransactionUpdateDto
+@{
+    ViewData["Title"] = "İşlem Düzenle";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Geri Dön
+                    </a>
+                </div>
+                <h4 class="page-title">İşlem Düzenle</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" asp-route-id="@ViewBag.TransactionId" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Amount" class="form-label">Tutar *</label>
+                                    <input asp-for="Amount" type="number" step="0.01" class="form-control" placeholder="0.00" required />
+                                    <span asp-validation-for="Amount" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Type" class="form-label">İşlem Türü *</label>
+                                    <select asp-for="Type" class="form-select" required>
+                                        <option value="">Seçiniz</option>
+                                        <option value="0">Gelir</option>
+                                        <option value="1">Gider</option>
+                                    </select>
+                                    <span asp-validation-for="Type" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Category" class="form-label">Kategori *</label>
+                                    <select asp-for="Category" class="form-select" required>
+                                        <option value="Genel">Genel</option>
+                                        <option value="Gıda">Gıda</option>
+                                        <option value="Ulaşım">Ulaşım</option>
+                                        <option value="Sağlık">Sağlık</option>
+                                        <option value="Eğlence">Eğlence</option>
+                                        <option value="Alışveriş">Alışveriş</option>
+                                        <option value="Fatura">Fatura</option>
+                                        <option value="Maaş">Maaş</option>
+                                        <option value="Ek Gelir">Ek Gelir</option>
+                                        <option value="Diğer">Diğer</option>
+                                    </select>
+                                    <span asp-validation-for="Category" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="TransactionDate" class="form-label">İşlem Tarihi *</label>
+                                    <input asp-for="TransactionDate" type="date" class="form-control" id="TransactionDate" required />
+                                    <span asp-validation-for="TransactionDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="İşlem hakkında açıklama..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-end">
+                            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+  
+}

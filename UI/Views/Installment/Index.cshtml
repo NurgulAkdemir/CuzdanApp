@@ -1,0 +1,120 @@
+@model UI.Models.InstallmentIndexViewModel
+@{
+    ViewData["Title"] = "Taksitlerim";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Yeni Taksit
+                    </a>
+                    <a asp-action="Calculate" class="btn btn-outline-primary">
+                        <i class="fas fa-calculator"></i> Taksit Hesapla
+                    </a>
+                </div>
+                <h4 class="page-title">Taksitlerim</h4>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card dashboard-card">
+                <div class="card-header">
+                    <h4 class="card-title">Tüm Taksitlerim</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.Installments.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Açıklama</th>
+                                        <th>Toplam Tutar</th>
+                                        <th>Aylık Taksit</th>
+                                        <th>Kalan Tutar</th>
+                                        <th>Başlangıç</th>
+                                        <th>Durum</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var installment in Model.Installments)
+                                    {
+                                        <tr class="dashboard-installment-item">
+                                            <td>@installment.Description</td>
+                                            <td>@installment.TotalAmount.ToString("C")</td>
+                                            <td>@installment.MonthlyAmount.ToString("C")</td>
+                                            <td>
+                                                <span class="@(installment.RemainingAmount > 0 ? "text-warning" : "text-success")">
+                                                    @installment.RemainingAmount.ToString("C")
+                                                </span>
+                                            </td>
+                                            <td>@installment.StartDate.ToString("dd.MM.yyyy")</td>
+                                            <td>
+                                                @if (installment.RemainingAmount > 0)
+                                                {
+                                                    <span class="badge bg-warning">Aktif</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-success">Tamamlandı</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a asp-action="Details" asp-route-id="@installment.Id" class="btn btn-sm btn-outline-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a asp-action="Edit" asp-route-id="@installment.Id" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <form asp-action="Delete" asp-route-id="@installment.Id" method="post" style="display: inline;">
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                                            onclick="return confirm('Bu taksiti silmek istediğinizden emin misiniz?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-credit-card fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Henüz taksit bulunmuyor</h5>
+                            <p class="text-muted">İlk taksitinizi eklemek için "Yeni Taksit" butonuna tıklayın.</p>
+                            <a asp-action="Create" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> İlk Taksiti Ekle
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

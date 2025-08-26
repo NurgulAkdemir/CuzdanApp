@@ -51,7 +51,7 @@ namespace UI.Validators
                 .MaximumLength(500).WithMessage("Açıklama 500 karakterden uzun olamaz.")
                 .When(x => !string.IsNullOrEmpty(x.Description));
 
-            RuleFor(x => x.Date)
+            RuleFor(x => x.TransactionDate)
                 .LessThanOrEqualTo(DateTime.Now.AddDays(1)).WithMessage("İşlem tarihi gelecekte olamaz.")
                 .GreaterThanOrEqualTo(DateTime.Now.AddYears(-10)).WithMessage("İşlem tarihi 10 yıldan eski olamaz.");
         }

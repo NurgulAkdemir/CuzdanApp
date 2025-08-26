@@ -1,15 +1,9 @@
-﻿using BusinessLogic.Services;
-using BusinessLogic.Interfaces;
-using Entity.DTO;
+﻿using BusinessLogic.Interfaces;
 using Entity.DTO.User;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System;
-using UI.Services;
-using UI.DTOs;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using UI.Services;
 
 namespace UI.Controllers
 {
@@ -68,8 +62,8 @@ namespace UI.Controllers
         }
 
         // API Actions
-        [HttpPost]
-        [ActionName("RegisterApi")]
+        [HttpPost("RegisterApi")]
+        //[ActionName("RegisterApi")]
         public async Task<IActionResult> RegisterApi([FromForm] string firstName, [FromForm] string lastName, [FromForm] string email, [FromForm] string password)
         {
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || 
@@ -102,8 +96,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpPost]
-        [ActionName("LoginApi")]
+        [HttpPost("LoginApi")]
+        //[ActionName("LoginApi")]
         public async Task<IActionResult> LoginApi([FromForm] string email, [FromForm] string password)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))

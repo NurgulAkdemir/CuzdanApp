@@ -7,13 +7,14 @@ using System;
 using System.Threading.Tasks;
 using Entity;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using System.Linq;
+using UI.Models;
 
 namespace UI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    [Authorize] // Tüm endpoint'ler için authentication gerekli
-    public class InstallmentController : ControllerBase
+    [Authorize]
+    public class InstallmentController : Controller
     {
         private readonly IInstallmentService _installmentService;
 
@@ -22,232 +23,256 @@ namespace UI.Controllers
             _installmentService = installmentService;
         }
 
+        // GET: Installment
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var userId = GetCurrentUserId();
+                if (userId == 0) return RedirectToAction("Login", "User");
+
+                var installments = await _installmentService.GetInstallmentsByUserIdAsync(userId);
+
+                var viewModel = new InstallmentIndexViewModel
+                {
+                    Installments = installments.OrderByDescending(i => i.CreatedDate).ToList()
+                };
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return View(new InstallmentIndexViewModel());
+            }
+        }
+
+        // GET: Installment/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Installment/Create
         [HttpPost]
-        public async Task<IActionResult> CreateInstallment(InstallmentCreateDto dto)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(InstallmentCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return View(dto);
             }
 
             try
             {
+                dto.UserId = GetCurrentUserId();
                 var created = await _installmentService.CreateInstallmentAsync(dto);
-                return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+                
+                TempData["SuccessMessage"] = "Taksit başarıyla oluşturuldu.";
+                return RedirectToAction(nameof(Index));
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { error = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { error = ex.Message });
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Taksit oluşturulurken bir hata oluştu." });
+                ModelState.AddModelError("", "Taksit oluşturulurken bir hata oluştu.");
+                return View(dto);
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        // GET: Installment/Details/5
+        public async Task<IActionResult> Details(int id)
         {
             try
             {
                 var installment = await _installmentService.GetInstallmentByIdAsync(id);
                 if (installment == null) return NotFound();
-                return Ok(installment);
+
+                // Kullanıcının kendi taksiti mi kontrol et
+                if (installment.UserId != GetCurrentUserId())
+                {
+                    return Forbid();
+                }
+
+                return View(installment);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Taksit getirilirken bir hata oluştu." });
+                return NotFound();
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        // GET: Installment/Edit/5
+        public async Task<IActionResult> Edit(int id)
         {
             try
             {
-                var installments = await _installmentService.GetAllInstallmentsAsync();
-                return Ok(installments);
+                var installment = await _installmentService.GetInstallmentByIdAsync(id);
+                if (installment == null) return NotFound();
+
+                // Kullanıcının kendi taksiti mi kontrol et
+                if (installment.UserId != GetCurrentUserId())
+                {
+                    return Forbid();
+                }
+
+                var updateDto = new InstallmentUpdateDto
+                {
+                    TotalAmount = installment.TotalAmount,
+                    InstallmentCount = installment.InstallmentCount,
+                    MonthlyAmount = installment.MonthlyAmount,
+                    StartDate = installment.StartDate,
+                    Description = installment.Description
+                };
+
+                return View(updateDto);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Taksitler getirilirken bir hata oluştu." });
+                return NotFound();
             }
         }
 
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetByUserId(int userId)
-        {
-            try
-            {
-                var installments = await _installmentService.GetInstallmentsByUserIdAsync(userId);
-                return Ok(installments);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { error = "Kullanıcının taksitleri getirilirken bir hata oluştu." });
-            }
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, InstallmentUpdateDto dto)
+        // POST: Installment/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, InstallmentUpdateDto dto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return View(dto);
             }
 
             try
             {
                 var updated = await _installmentService.UpdateInstallmentAsync(id, dto);
                 if (updated == null) return NotFound();
-                return Ok(updated);
+
+                TempData["SuccessMessage"] = "Taksit başarıyla güncellendi.";
+                return RedirectToAction(nameof(Index));
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { error = ex.Message });
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Taksit güncellenirken bir hata oluştu." });
+                ModelState.AddModelError("", "Taksit güncellenirken bir hata oluştu.");
+                return View(dto);
             }
         }
 
-        [HttpDelete("{id}")]
+        // POST: Installment/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var deleted = await _installmentService.DeleteInstallmentAsync(id);
-                if (!deleted) return NotFound();
-                return NoContent();
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { error = "Taksit silinirken bir hata oluştu." });
-            }
-        }
+                var installment = await _installmentService.GetInstallmentByIdAsync(id);
+                if (installment == null) return NotFound();
 
-        [HttpPost("{id}/payment")]
-        public async Task<IActionResult> ProcessPayment(int id, [FromBody] decimal paymentAmount)
-        {
-            try
-            {
-                var updated = await _installmentService.ProcessPaymentAsync(id, paymentAmount);
-                return Ok(updated);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { error = "Ödeme işlenirken bir hata oluştu." });
-            }
-        }
-
-        [HttpPost("calculate")]
-        public IActionResult CalculateInstallment([FromBody] InstallmentCalculationRequestDto request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                var res = _installmentService.CalculateInstallment(request);
-                return Ok(res);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { error = "Hesaplama yapılırken bir hata oluştu." });
-            }
-        }
-
-        [HttpGet("interest-types")]
-        public IActionResult GetInterestTypes()
-        {
-            try
-            {
-                var interestTypes = new[]
+                // Kullanıcının kendi taksiti mi kontrol et
+                if (installment.UserId != GetCurrentUserId())
                 {
-                    new { Value = (int)InterestType.Annual, Name = "Yıllık", Description = "Faiz oranı yıllık bazda uygulanır" },
-                    new { Value = (int)InterestType.Monthly, Name = "Aylık", Description = "Faiz oranı aylık bazda uygulanır (bileşik faiz)" }
-                };
+                    return Forbid();
+                }
+
+                await _installmentService.DeleteInstallmentAsync(id);
                 
-                return Ok(interestTypes);
+                TempData["SuccessMessage"] = "Taksit başarıyla silindi.";
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Faiz türleri getirilirken bir hata oluştu." });
+                TempData["ErrorMessage"] = "Taksit silinirken bir hata oluştu.";
+                return RedirectToAction(nameof(Index));
             }
         }
 
-        [HttpPost("calculate-comparison")]
-        public IActionResult CalculateComparison([FromBody] InstallmentCalculationRequestDto request)
+        // GET: Installment/Calculate
+        public IActionResult Calculate()
+        {
+            return View();
+        }
+
+        // POST: Installment/Calculate
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Calculate(InstallmentCalculationRequestDto dto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return View(dto);
             }
 
             try
             {
-                if (request.OriginalAmount <= 0) throw new ArgumentException("Anapara tutarı 0'dan büyük olmalıdır.");
-                if (request.InterestRate < 0) throw new ArgumentException("Faiz oranı negatif olamaz.");
-                if (request.TotalInstallments <= 0) throw new ArgumentException("Taksit sayısı 0'dan büyük olmalıdır.");
-
-                // Yıllık faiz hesaplama
-                var annualResult = _installmentService.CalculateInstallment(new InstallmentCalculationRequestDto
+                var result = _installmentService.CalculateInstallment(dto);
+                var viewModel = new InstallmentCalculationViewModel
                 {
-                    OriginalAmount = request.OriginalAmount,
-                    InterestRate = request.InterestRate,
-                    InterestType = InterestType.Annual,
-                    TotalInstallments = request.TotalInstallments
-                });
-
-                // Aylık faiz hesaplama
-                var monthlyResult = _installmentService.CalculateInstallment(new InstallmentCalculationRequestDto
-                {
-                    OriginalAmount = request.OriginalAmount,
-                    InterestRate = request.InterestRate,
-                    InterestType = InterestType.Monthly,
-                    TotalInstallments = request.TotalInstallments
-                });
-
-                var comparison = new
-                {
-                    OriginalAmount = request.OriginalAmount,
-                    InterestRate = request.InterestRate,
-                    TotalInstallments = request.TotalInstallments,
-                    AnnualCalculation = annualResult,
-                    MonthlyCalculation = monthlyResult,
-                    Difference = monthlyResult.TotalAmount - annualResult.TotalAmount,
-                    DifferencePercentage = ((monthlyResult.TotalAmount - annualResult.TotalAmount) / annualResult.TotalAmount) * 100
+                    Request = dto,
+                    Result = result
                 };
 
-                return Ok(comparison);
+                return View("CalculationResult", viewModel);
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { error = ex.Message });
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { error = "Karşılaştırma hesaplaması yapılırken bir hata oluştu." });
+                ModelState.AddModelError("", "Taksit hesaplanırken bir hata oluştu.");
+                return View(dto);
             }
+        }
+
+        // POST: Installment/ProcessPayment/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProcessPayment(int id, decimal paymentAmount)
+        {
+            try
+            {
+                var installment = await _installmentService.GetInstallmentByIdAsync(id);
+                if (installment == null) return NotFound();
+
+                // Kullanıcının kendi taksiti mi kontrol et
+                if (installment.UserId != GetCurrentUserId())
+                {
+                    return Forbid();
+                }
+
+                var result = await _installmentService.ProcessPaymentAsync(id, paymentAmount);
+                
+                TempData["SuccessMessage"] = $"Ödeme başarıyla işlendi. Kalan tutar: {result.RemainingAmount:C}";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (ArgumentException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = "Ödeme işlenirken bir hata oluştu.";
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        private int GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
+            {
+                return userId;
+            }
+            return 0;
         }
     }
 }

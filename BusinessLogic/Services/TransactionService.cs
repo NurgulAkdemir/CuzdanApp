@@ -37,7 +37,7 @@ namespace BusinessLogic.Services
                 UserId = dto.UserId,
                 Amount = dto.Amount,
                 Type = dto.Type,
-                Date = dto.TransactionDate,
+                TransactionDate = dto.TransactionDate,
                 Category = dto.Category,
                 Description = dto.Description
             };
@@ -56,7 +56,7 @@ namespace BusinessLogic.Services
                 Type = transaction.Type,
                 Category = transaction.Category,
                 Description = transaction.Description,
-                TransactionDate = transaction.Date
+                TransactionDate = transaction.TransactionDate
             };
         }
 
@@ -73,7 +73,7 @@ namespace BusinessLogic.Services
                 Type = transaction.Type,
                 Category = transaction.Category,
                 Description = transaction.Description,
-                TransactionDate = transaction.Date
+                TransactionDate = transaction.TransactionDate
             };
         }
 
@@ -89,7 +89,7 @@ namespace BusinessLogic.Services
                 Type = t.Type,
                 Category = t.Category,
                 Description = t.Description,
-                TransactionDate = t.Date
+                TransactionDate = t.TransactionDate
             });
         }
 
@@ -106,7 +106,7 @@ namespace BusinessLogic.Services
                 Type = t.Type,
                 Category = t.Category,
                 Description = t.Description,
-                TransactionDate = t.Date
+                TransactionDate = t.TransactionDate
             });
         }
 
@@ -122,7 +122,7 @@ namespace BusinessLogic.Services
             transaction.Category = dto.Category;
             transaction.Type = dto.Type;
             transaction.Description = dto.Description;
-            transaction.Date = dto.Date;
+            transaction.TransactionDate = dto.TransactionDate;
 
             await _transactionRepository.UpdateAsync(transaction);
 
@@ -134,7 +134,7 @@ namespace BusinessLogic.Services
                 Type = transaction.Type,
                 Category = transaction.Category,
                 Description = transaction.Description,
-                TransactionDate = transaction.Date
+                TransactionDate = transaction.TransactionDate
             };
         }
 

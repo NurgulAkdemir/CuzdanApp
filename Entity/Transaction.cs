@@ -9,13 +9,13 @@ namespace Entity
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public decimal Amount { get; set; } // pozitif deðer için 
+        public decimal Amount { get; set; } // pozitif deï¿½er iï¿½in 
         public TransactionType Type { get; set; }
         public string Category { get; set; } = null!;
         public string? Description { get; set; }
-        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public DateTime TransactionDate { get; set; } = DateTime.UtcNow;
 
-        // Eðer bu iþlem bir taksit ödemesinin parçasýysa 
+        // Eï¿½er bu iï¿½lem bir taksit ï¿½demesinin parï¿½asï¿½ysa 
         public int? InstallmentId { get; set; }
         public Installment? Installment { get; set; }
 

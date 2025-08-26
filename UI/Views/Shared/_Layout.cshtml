@@ -31,6 +31,11 @@
                                 <i class="fas fa-info-circle me-1"></i>Hakkımızda
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Finance" asp-action="Index">
+                                <i class="fas fa-chart-line me-1"></i>Finansal Analiz
+                            </a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         @if (User.Identity?.IsAuthenticated == true)
