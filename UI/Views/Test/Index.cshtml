@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Test Sayfası";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Test Sayfası</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Taksit Kayıt Testi</h5>
+                    <p class="card-text">Bu sayfa taksit kayıt işlemini test etmek için kullanılır.</p>
+                    
+                    <button id="testButton" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Taksit Oluştur Testi
+                    </button>
+                    
+                    <div id="result" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('testButton').addEventListener('click', async function() {
+            const button = this;
+            const resultDiv = document.getElementById('result');
+            
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Test ediliyor...';
+            resultDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch('/Test/TestInstallmentCreate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    resultDiv.innerHTML = `
+                        <div class="alert alert-success">
+                            <h6>✅ Başarılı!</h6>
+                            <p>${result.message}</p>
+                            <pre class="mt-2">${JSON.stringify(result.data, null, 2)}</pre>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <h6>❌ Hata!</h6>
+                            <p>${result.message}</p>
+                            <details class="mt-2">
+                                <summary>Stack Trace</summary>
+                                <pre>${result.stackTrace}</pre>
+                            </details>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h6>❌ Sistem Hatası!</h6>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-play"></i> Taksit Oluştur Testi';
+            }
+        });
+    </script>
+}

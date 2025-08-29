@@ -1,0 +1,154 @@
+@model Entity.DTO.Installment.InstallmentCreateDto
+@{
+    ViewData["Title"] = "Yeni Taksit Ekle";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Geri Dön
+                    </a>
+                </div>
+                <h4 class="page-title">Yeni Taksit Ekle</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="OriginalAmount" class="form-label">Anapara Tutarı *</label>
+                                    <div class="input-group">
+                                        <input asp-for="OriginalAmount" type="number" step="0.01" class="form-control" placeholder="0.00" required />
+                                        <span class="input-group-text">₺</span>
+                                    </div>
+                                    <span asp-validation-for="OriginalAmount" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="TotalInstallments" class="form-label">Toplam Taksit Sayısı *</label>
+                                    <input asp-for="TotalInstallments" type="number" min="1" max="120" class="form-control" placeholder="12" required />
+                                    <small class="form-text text-muted">1-120 arası taksit sayısı girebilirsiniz</small>
+                                    <span asp-validation-for="TotalInstallments" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="InterestRate" class="form-label">Faiz Oranı (%) *</label>
+                                    <div class="input-group">
+                                        <input asp-for="InterestRate" type="number" step="0.01" min="0" max="100" class="form-control" placeholder="0.00" required />
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <small class="form-text text-muted">Örn: 5.5 = %5.5 faiz</small>
+                                    <span asp-validation-for="InterestRate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="InterestType" class="form-label">Faiz Türü *</label>
+                                    <select asp-for="InterestType" class="form-select" required>
+                                        <option value="1">Yıllık</option>
+                                        <option value="2">Aylık</option>
+                                    </select>
+                                    <span asp-validation-for="InterestType" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="NextPaymentDate" class="form-label">İlk Ödeme Tarihi</label>
+                                    <input asp-for="NextPaymentDate" type="date" class="form-control" id="NextPaymentDate" />
+                                    <small class="form-text text-muted">Boş bırakılırsa bugünden itibaren başlar</small>
+                                    <span asp-validation-for="NextPaymentDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Hesaplanan Bilgiler</label>
+                                    <div class="form-control-plaintext">
+                                        <div id="calculationPreview" class="text-muted">
+                                            <small>Bilgileri girdikten sonra hesaplama önizlemesi görünecek</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Taksit Açıklaması *</label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Taksit hakkında açıklama (örn: Ev kredisi, Araba kredisi...)" required></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-end">
+                            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Taksiti Oluştur
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Sayfa yüklendiğinde bugünün tarihini set et
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('NextPaymentDate').value = today;
+            
+            // Hesaplama önizlemesi için event listener'lar
+            const amountInput = document.querySelector('input[name="OriginalAmount"]');
+            const installmentsInput = document.querySelector('input[name="TotalInstallments"]');
+            const interestInput = document.querySelector('input[name="InterestRate"]');
+            const interestTypeSelect = document.querySelector('select[name="InterestType"]');
+            
+            [amountInput, installmentsInput, interestInput, interestTypeSelect].forEach(input => {
+                input.addEventListener('input', updateCalculationPreview);
+            });
+        });
+
+        function updateCalculationPreview() {
+            const amount = parseFloat(document.querySelector('input[name="OriginalAmount"]').value) || 0;
+            const installments = parseInt(document.querySelector('input[name="TotalInstallments"]').value) || 0;
+            const interestRate = parseFloat(document.querySelector('input[name="InterestRate"]').value) || 0;
+            const interestType = document.querySelector('select[name="InterestType"]').value;
+            
+            if (amount > 0 && installments > 0 && interestRate >= 0) {
+                const monthlyInterestRate = interestType == 1 ? interestRate / 100 / 12 : interestRate / 100;
+                const monthlyPayment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, installments)) / 
+                                     (Math.pow(1 + monthlyInterestRate, installments) - 1);
+                const totalAmount = monthlyPayment * installments;
+                
+                document.getElementById('calculationPreview').innerHTML = `
+                    <strong>Aylık Taksit:</strong> ${monthlyPayment.toFixed(2)} ₺<br>
+                    <strong>Toplam Ödenecek:</strong> ${totalAmount.toFixed(2)} ₺<br>
+                    <strong>Toplam Faiz:</strong> ${(totalAmount - amount).toFixed(2)} ₺
+                `;
+            } else {
+                document.getElementById('calculationPreview').innerHTML = 
+                    '<small>Bilgileri girdikten sonra hesaplama önizlemesi görünecek</small>';
+            }
+        }
+    </script>
+}

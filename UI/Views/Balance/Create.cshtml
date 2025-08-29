@@ -1,0 +1,124 @@
+@model Entity.DTO.Balance.BalanceCreateDto
+@{
+    ViewData["Title"] = "Yeni Bakiye Ekle";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Geri Dön
+                    </a>
+                </div>
+                <h4 class="page-title">Yeni Bakiye Ekle</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        @if (ViewData.ModelState.Any(m => m.Value.Errors.Count > 0))
+                        {
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Amount" class="form-label">Bakiye Tutarı *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">₺</span>
+                                        <input asp-for="Amount" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" required />
+                                    </div>
+                                    <span asp-validation-for="Amount" class="text-danger"></span>
+                                    <div class="form-text">Eklemek istediğiniz bakiye tutarını giriniz.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Date" class="form-label">Tarih *</label>
+                                    <input asp-for="Date" type="date" class="form-control" id="Date" required />
+                                    <span asp-validation-for="Date" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Bakiye hakkında açıklama..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Bilgi:</strong> Bu işlem mevcut bakiyenize ekleme yapacaktır. Girdiğiniz tutar mevcut bakiyenize eklenerek yeni toplam bakiye hesaplanacaktır.
+                        </div>
+
+                        <div class="text-end">
+                            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Form validasyonu
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const amountInput = document.querySelector('#Amount');
+            const dateInput = document.querySelector('#Date');
+            
+            // Sayfa yüklendiğinde bugünün tarihini set et
+            var today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+            
+            form.addEventListener('submit', function(e) {
+                const amount = parseFloat(amountInput.value);
+                
+                if (amount <= 0) {
+                    e.preventDefault();
+                    alert('Bakiye tutarı sıfırdan büyük olmalıdır.');
+                    amountInput.focus();
+                    return false;
+                }
+                
+                if (amount > 999999999) {
+                    e.preventDefault();
+                    alert('Bakiye tutarı çok yüksek. Lütfen daha düşük bir tutar giriniz.');
+                    amountInput.focus();
+                    return false;
+                }
+            });
+            
+            // Sayısal giriş kontrolü
+            amountInput.addEventListener('input', function() {
+                let value = this.value;
+                if (value < 0) {
+                    this.value = 0;
+                }
+            });
+        });
+    </script>
+}

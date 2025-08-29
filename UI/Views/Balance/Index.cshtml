@@ -67,7 +67,7 @@
                                     <tr>
                                         <th>Tarih</th>
                                         <th>Açıklama</th>
-                                        <th>Tutar</th>
+                                        <th>Toplam Bakiye</th>
                                         <th>İşlemler</th>
                                     </tr>
                                 </thead>
@@ -78,7 +78,7 @@
                                             <td>@balance.Date.ToString("dd.MM.yyyy")</td>
                                             <td>@balance.Description</td>
                                             <td>
-                                                <span class="text-success">+@balance.Amount.ToString("C")</span>
+                                                <span class="text-primary">@balance.Amount.ToString("C")</span>
                                             </td>
                                             <td>
                                                 <a asp-action="Edit" asp-route-id="@balance.Id" class="btn btn-sm btn-outline-primary">

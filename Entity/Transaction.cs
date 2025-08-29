@@ -9,7 +9,7 @@ namespace Entity
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public decimal Amount { get; set; } // pozitif de�er i�in 
+        public decimal Amount { get; set; } // pozitif deger icin 
         public TransactionType Type { get; set; }
         public string Category { get; set; } = null!;
         public string? Description { get; set; }

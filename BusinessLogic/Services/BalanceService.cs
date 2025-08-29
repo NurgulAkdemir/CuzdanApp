@@ -28,11 +28,16 @@ namespace BusinessLogic.Services
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null) throw new InvalidOperationException("Kullanıcı bulunamadı.");
 
+            // Mevcut bakiyeyi al
+            var currentBalance = await GetCurrentBalanceByUserIdAsync(userId);
+            decimal newAmount = (currentBalance?.Amount ?? 0) + dto.Amount;
+
             var balance = new Balance
             {
                 UserId = userId,
-                Amount = dto.Amount,
-                AsOf = DateTime.UtcNow
+                Amount = newAmount, // Mevcut bakiye + eklenen miktar
+                Date = dto.Date,
+                Description = dto.Description
             };
 
             await _balanceRepository.AddAsync(balance);
@@ -40,7 +45,10 @@ namespace BusinessLogic.Services
             return new BalanceResponseDto
             {
                 Id = balance.Id,
-                Amount = balance.Amount
+                UserId = balance.UserId,
+                Amount = balance.Amount,
+                Date = balance.Date,
+                Description = balance.Description
             };
         }
 
@@ -52,21 +60,27 @@ namespace BusinessLogic.Services
             return new BalanceResponseDto
             {
                 Id = balance.Id,
-                Amount = balance.Amount
+                UserId = balance.UserId,
+                Amount = balance.Amount,
+                Date = balance.Date,
+                Description = balance.Description
             };
         }
 
         public async Task<BalanceResponseDto> GetCurrentBalanceByUserIdAsync(int userId)
         {
             var balances = await _balanceRepository.FindAsync(b => b.UserId == userId);
-            var currentBalance = balances.OrderByDescending(b => b.AsOf).FirstOrDefault();
+            var currentBalance = balances.OrderByDescending(b => b.Date).FirstOrDefault();
             
             if (currentBalance == null) return null;
 
             return new BalanceResponseDto
             {
                 Id = currentBalance.Id,
-                Amount = currentBalance.Amount
+                UserId = currentBalance.UserId,
+                Amount = currentBalance.Amount,
+                Date = currentBalance.Date,
+                Description = currentBalance.Description
             };
         }
 
@@ -74,10 +88,13 @@ namespace BusinessLogic.Services
         {
             var balances = await _balanceRepository.FindAsync(b => b.UserId == userId);
             
-            return balances.OrderByDescending(b => b.AsOf).Select(b => new BalanceResponseDto
+            return balances.OrderByDescending(b => b.Date).Select(b => new BalanceResponseDto
             {
                 Id = b.Id,
-                Amount = b.Amount
+                UserId = b.UserId,
+                Amount = b.Amount,
+                Date = b.Date,
+                Description = b.Description
             });
         }
 
@@ -89,14 +106,18 @@ namespace BusinessLogic.Services
             if (dto.Amount < 0) throw new ArgumentException("Bakiye negatif olamaz.");
 
             balance.Amount = dto.Amount;
-            balance.AsOf = DateTime.UtcNow;
+            balance.Date = dto.Date;
+            balance.Description = dto.Description;
 
             await _balanceRepository.UpdateAsync(balance);
 
             return new BalanceResponseDto
             {
                 Id = balance.Id,
-                Amount = balance.Amount
+                UserId = balance.UserId,
+                Amount = balance.Amount,
+                Date = balance.Date,
+                Description = balance.Description
             };
         }
 
@@ -126,7 +147,8 @@ namespace BusinessLogic.Services
                 {
                     UserId = userId,
                     Amount = newAmount,
-                    AsOf = DateTime.UtcNow
+                    Date = DateTime.UtcNow,
+                    Description = isIncome ? "İşlem gelir" : "İşlem gider"
                 };
 
                 await _balanceRepository.AddAsync(balance);
@@ -134,7 +156,10 @@ namespace BusinessLogic.Services
                 return new BalanceResponseDto
                 {
                     Id = balance.Id,
-                    Amount = balance.Amount
+                    UserId = balance.UserId,
+                    Amount = balance.Amount,
+                    Date = balance.Date,
+                    Description = balance.Description
                 };
             }
             else
@@ -146,14 +171,18 @@ namespace BusinessLogic.Services
 
                 var balance = await _balanceRepository.GetByIdAsync(currentBalance.Id);
                 balance.Amount = newAmount;
-                balance.AsOf = DateTime.UtcNow;
+                balance.Date = DateTime.UtcNow;
+                balance.Description = isIncome ? "İşlem gelir" : "İşlem gider";
 
                 await _balanceRepository.UpdateAsync(balance);
 
                 return new BalanceResponseDto
                 {
                     Id = balance.Id,
-                    Amount = balance.Amount
+                    UserId = balance.UserId,
+                    Amount = balance.Amount,
+                    Date = balance.Date,
+                    Description = balance.Description
                 };
             }
         }

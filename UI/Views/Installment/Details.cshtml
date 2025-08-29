@@ -1,0 +1,169 @@
+@model Entity.Installment
+@{
+    ViewData["Title"] = "Taksit Detayları";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Geri Dön
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Düzenle
+                    </a>
+                </div>
+                <h4 class="page-title">Taksit Detayları</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">@Model.Description</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-primary mb-3">Temel Bilgiler</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td><strong>Anapara:</strong></td>
+                                    <td>@Model.OriginalAmount.ToString("C")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Toplam Tutar:</strong></td>
+                                    <td>@Model.TotalAmount.ToString("C")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Faiz Oranı:</strong></td>
+                                    <td>@Model.InterestRate.ToString("F2")% (@(Model.InterestType == Entity.InterestType.Annual ? "Yıllık" : "Aylık"))</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Toplam Taksit:</strong></td>
+                                    <td>@Model.TotalInstallments</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kalan Taksit:</strong></td>
+                                    <td>
+                                        <span class="badge @(Model.RemainingInstallments > 0 ? "bg-warning" : "bg-success")">
+                                            @Model.RemainingInstallments
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary mb-3">Ödeme Bilgileri</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td><strong>Aylık Taksit:</strong></td>
+                                    <td>@Model.PerInstallmentAmount.ToString("C")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kalan Tutar:</strong></td>
+                                    <td>
+                                        <span class="@(Model.RemainingAmount > 0 ? "text-warning" : "text-success")">
+                                            <strong>@Model.RemainingAmount.ToString("C")</strong>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Oluşturulma Tarihi:</strong></td>
+                                    <td>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sonraki Ödeme:</strong></td>
+                                    <td>
+                                        @if (Model.NextPaymentDate.HasValue)
+                                        {
+                                            <span class="text-info">@Model.NextPaymentDate.Value.ToString("dd.MM.yyyy")</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">Belirtilmemiş</span>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Durum:</strong></td>
+                                    <td>
+                                        @if (Model.IsActive)
+                                        {
+                                            <span class="badge bg-success">Aktif</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Pasif</span>
+                                        }
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    @if (Model.Transactions.Any())
+                    {
+                        <hr class="my-4">
+                        <h5 class="text-primary mb-3">Ödeme Geçmişi</h5>
+                        <div class="table-responsive">
+                            <table class="table table-centered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        <th>Tutar</th>
+                                        <th>Açıklama</th>
+                                        <th>Kategori</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var transaction in Model.Transactions.OrderByDescending(t => t.TransactionDate))
+                                    {
+                                        <tr>
+                                            <td>@transaction.TransactionDate.ToString("dd.MM.yyyy")</td>
+                                            <td>
+                                                <span class="@(transaction.Type == Entity.TransactionType.Income ? "text-success" : "text-danger")">
+                                                    @transaction.Amount.ToString("C")
+                                                </span>
+                                            </td>
+                                            <td>@transaction.Description</td>
+                                            <td>@transaction.Category</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <hr class="my-4">
+                        <div class="text-center py-3">
+                            <i class="fas fa-info-circle fa-2x text-muted mb-2"></i>
+                            <p class="text-muted">Henüz ödeme kaydı bulunmuyor.</p>
+                        </div>
+                    }
+
+                    <div class="text-center mt-4">
+                        <a asp-action="Index" class="btn btn-secondary me-2">
+                            <i class="fas fa-list"></i> Taksit Listesi
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-2">
+                            <i class="fas fa-edit"></i> Düzenle
+                        </a>
+                        <form asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-danger" 
+                                    onclick="return confirm('Bu taksiti silmek istediğinizden emin misiniz?')">
+                                <i class="fas fa-trash"></i> Sil
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

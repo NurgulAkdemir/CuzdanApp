@@ -33,8 +33,12 @@ namespace DAL.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("AsOf")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
@@ -55,7 +59,11 @@ namespace DAL.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("InterestRate")
                         .HasColumnType("numeric");
@@ -67,12 +75,15 @@ namespace DAL.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime?>("NextPaymentDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<decimal>("OriginalAmount")
                         .HasColumnType("numeric");
 
                     b.Property<decimal>("PerInstallmentAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("RemainingAmount")
                         .HasColumnType("numeric");
 
                     b.Property<int>("RemainingInstallments")
@@ -109,14 +120,14 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
                     b.Property<int?>("InstallmentId")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
@@ -145,7 +156,7 @@ namespace DAL.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()

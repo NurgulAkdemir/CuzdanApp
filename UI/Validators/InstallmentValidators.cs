@@ -26,6 +26,10 @@ namespace UI.Validators
                 .GreaterThan(0).WithMessage("Taksit sayısı 0'dan büyük olmalıdır.")
                 .LessThanOrEqualTo(120).WithMessage("Taksit sayısı 120'den büyük olamaz.");
 
+            RuleFor(x => x.Description)
+                .NotEmpty().WithMessage("Taksit açıklaması boş olamaz.")
+                .MaximumLength(500).WithMessage("Taksit açıklaması 500 karakterden uzun olamaz.");
+
             RuleFor(x => x.NextPaymentDate)
                 .GreaterThan(DateTime.Now).WithMessage("Sonraki ödeme tarihi bugünden sonra olmalıdır.")
                 .When(x => x.NextPaymentDate.HasValue);

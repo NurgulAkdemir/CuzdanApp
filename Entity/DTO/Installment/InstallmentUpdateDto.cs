@@ -9,6 +9,7 @@ namespace Entity.DTO.Installment
 {
     public class InstallmentUpdateDto
     {
+        public int Id { get; set; }
         public decimal OriginalAmount { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal InterestRate { get; set; }

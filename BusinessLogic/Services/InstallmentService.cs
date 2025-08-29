@@ -69,6 +69,7 @@ namespace BusinessLogic.Services
                 Description = installment.Description,
                 CreatedAt = installment.CreatedAt,
                 NextPaymentDate = installment.NextPaymentDate,
+                StartDate = installment.CreatedAt,
                 IsActive = installment.IsActive
             };
         }
@@ -138,6 +139,7 @@ namespace BusinessLogic.Services
                 RemainingAmount = i.RemainingAmount,
                 Description = i.Description,
                 CreatedAt = i.CreatedAt,
+                StartDate = i.CreatedAt,
                 NextPaymentDate = i.NextPaymentDate,
                 IsActive = i.IsActive
             });
@@ -254,6 +256,8 @@ namespace BusinessLogic.Services
 
         public decimal CalculateTotalAmount(decimal originalAmount, decimal interestRate, InterestType interestType, int totalInstallments)
         {
+            // Faiz oranını yüzde'den ondalığa çevir (örn: 5.5% -> 0.055)
+            decimal rateDecimal = interestRate / 100.0m;
             decimal timeInYears;
             
             if (interestType == InterestType.Annual)
@@ -261,13 +265,13 @@ namespace BusinessLogic.Services
                 // Yıllık faiz: A = P(1 + rt)
                 // P: Anapara, r: Yıllık faiz oranı, t: Zaman (yıl)
                 timeInYears = totalInstallments / 12.0m;
-                return originalAmount * (1 + interestRate * timeInYears);
+                return originalAmount * (1 + rateDecimal * timeInYears);
             }
             else
             {
                 // Aylık faiz: A = P(1 + r)^t
                 // P: Anapara, r: Aylık faiz oranı, t: Taksit sayısı (ay)
-                decimal monthlyRate = interestRate / 12.0m; // Yıllık oranı aylığa çevir
+                decimal monthlyRate = rateDecimal / 12.0m; // Yıllık oranı aylığa çevir
                 return originalAmount * (decimal)Math.Pow((double)(1 + monthlyRate), totalInstallments);
             }
         }
