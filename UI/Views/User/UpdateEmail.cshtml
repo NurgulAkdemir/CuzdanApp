@@ -1,0 +1,102 @@
+@model UpdateEmailDto
+@{
+    ViewData["Title"] = "E-posta Güncelle";
+    Layout = "_LayoutApp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-envelope"></i> E-posta Güncelle</h2>
+                <a asp-action="Profile" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Profile Dön
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-at me-2"></i>
+                        E-posta Adresi Güncelleme
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["SuccessMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+                        </div>
+                    }
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Mevcut e-posta: <strong>@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value</strong>
+                    </div>
+
+                    <form asp-action="UpdateEmail" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="mb-3">
+                            <label asp-for="NewEmail" class="form-label">
+                                <i class="fas fa-envelope me-2"></i>Yeni E-posta Adresi
+                            </label>
+                            <input asp-for="NewEmail" type="email" class="form-control" placeholder="yeni@email.com">
+                            <span asp-validation-for="NewEmail" class="text-danger"></span>
+                            <div class="form-text">Geçerli bir e-posta adresi giriniz.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">
+                                <i class="fas fa-lock me-2"></i>Şifre Doğrulaması
+                            </label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Mevcut şifrenizi giriniz">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="form-text">Güvenlik için mevcut şifrenizi onaylayın.</div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-info">
+                                <i class="fas fa-save me-2"></i>E-postayı Güncelle
+                            </button>
+                            <a asp-action="Profile" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-2"></i>İptal
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <i class="fas fa-shield-alt me-2"></i>Güvenlik Bildirimi
+                    </h6>
+                    <p class="card-text mb-0">
+                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                        E-posta adresinizi değiştirdikten sonra, hesabınıza erişim için yeni e-posta adresinizi kullanmanız gerekecektir.
+                        Bu işlem güvenlik nedeniyle oturumunuzu yeniden başlatacaktır.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

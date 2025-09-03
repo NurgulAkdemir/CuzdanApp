@@ -23,19 +23,16 @@ namespace BusinessLogic.Services
 
         public async Task<BalanceResponseDto> CreateBalanceAsync(int userId, BalanceCreateDto dto)
         {
-            if (dto.Amount < 0) throw new ArgumentException("Bakiye negatif olamaz.");
+            if (dto.Amount <= 0) throw new ArgumentException("Bakiye miktarı sıfırdan büyük olmalıdır.");
             
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null) throw new InvalidOperationException("Kullanıcı bulunamadı.");
 
-            // Mevcut bakiyeyi al
-            var currentBalance = await GetCurrentBalanceByUserIdAsync(userId);
-            decimal newAmount = (currentBalance?.Amount ?? 0) + dto.Amount;
-
+            // Sadece eklenen miktarı kaydet - toplam hesaplaması GetCurrentBalanceByUserIdAsync'de yapılıyor
             var balance = new Balance
             {
                 UserId = userId,
-                Amount = newAmount, // Mevcut bakiye + eklenen miktar
+                Amount = dto.Amount, // Sadece eklenen miktar
                 Date = dto.Date,
                 Description = dto.Description
             };
@@ -70,17 +67,20 @@ namespace BusinessLogic.Services
         public async Task<BalanceResponseDto> GetCurrentBalanceByUserIdAsync(int userId)
         {
             var balances = await _balanceRepository.FindAsync(b => b.UserId == userId);
-            var currentBalance = balances.OrderByDescending(b => b.Date).FirstOrDefault();
             
-            if (currentBalance == null) return null;
+            if (!balances.Any()) return null;
+
+            // Tüm bakiye işlemlerinin toplamını hesapla
+            var totalAmount = balances.Sum(b => b.Amount);
+            var latestBalance = balances.OrderByDescending(b => b.Date).FirstOrDefault();
 
             return new BalanceResponseDto
             {
-                Id = currentBalance.Id,
-                UserId = currentBalance.UserId,
-                Amount = currentBalance.Amount,
-                Date = currentBalance.Date,
-                Description = currentBalance.Description
+                Id = latestBalance.Id,
+                UserId = latestBalance.UserId,
+                Amount = totalAmount, // Toplam bakiye
+                Date = latestBalance.Date,
+                Description = latestBalance.Description
             };
         }
 
@@ -135,56 +135,37 @@ namespace BusinessLogic.Services
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null) throw new InvalidOperationException("Kullanıcı bulunamadı.");
 
-            // Mevcut bakiyeyi al
+            // Gelir/gider olarak işlem miktarını belirle
+            decimal transactionAmount = isIncome ? amount : -amount;
+            
+            // Mevcut toplam bakiyeyi kontrol et (yetersiz bakiye kontrolü için)
             var currentBalance = await GetCurrentBalanceByUserIdAsync(userId);
-            decimal newAmount;
-
-            if (currentBalance == null)
+            decimal currentTotal = currentBalance?.Amount ?? 0;
+            
+            if (!isIncome && currentTotal + transactionAmount < 0) 
             {
-                // İlk bakiye oluştur
-                newAmount = isIncome ? amount : -amount;
-                var balance = new Balance
-                {
-                    UserId = userId,
-                    Amount = newAmount,
-                    Date = DateTime.UtcNow,
-                    Description = isIncome ? "İşlem gelir" : "İşlem gider"
-                };
-
-                await _balanceRepository.AddAsync(balance);
-
-                return new BalanceResponseDto
-                {
-                    Id = balance.Id,
-                    UserId = balance.UserId,
-                    Amount = balance.Amount,
-                    Date = balance.Date,
-                    Description = balance.Description
-                };
+                throw new InvalidOperationException("Yetersiz bakiye.");
             }
-            else
+
+            // Yeni bakiye kaydı oluştur
+            var balance = new Balance
             {
-                // Mevcut bakiyeyi güncelle
-                newAmount = isIncome ? currentBalance.Amount + amount : currentBalance.Amount - amount;
-                
-                if (newAmount < 0) throw new InvalidOperationException("Yetersiz bakiye.");
+                UserId = userId,
+                Amount = transactionAmount, // İşlem miktarını kaydet (+ veya -)
+                Date = DateTime.UtcNow,
+                Description = isIncome ? "İşlem gelir" : "İşlem gider"
+            };
 
-                var balance = await _balanceRepository.GetByIdAsync(currentBalance.Id);
-                balance.Amount = newAmount;
-                balance.Date = DateTime.UtcNow;
-                balance.Description = isIncome ? "İşlem gelir" : "İşlem gider";
+            await _balanceRepository.AddAsync(balance);
 
-                await _balanceRepository.UpdateAsync(balance);
-
-                return new BalanceResponseDto
-                {
-                    Id = balance.Id,
-                    UserId = balance.UserId,
-                    Amount = balance.Amount,
-                    Date = balance.Date,
-                    Description = balance.Description
-                };
-            }
+            return new BalanceResponseDto
+            {
+                Id = balance.Id,
+                UserId = balance.UserId,
+                Amount = balance.Amount,
+                Date = balance.Date,
+                Description = balance.Description
+            };
         }
     }
 }

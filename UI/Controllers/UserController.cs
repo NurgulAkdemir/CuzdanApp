@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Interfaces;
 using Entity.DTO.User;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using UI.Services;
@@ -32,6 +33,7 @@ namespace UI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Profile()
         {
             try
@@ -54,11 +56,127 @@ namespace UI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             // Kullanıcıyı sign out yap
             await HttpContext.SignOutAsync("Cookies");
             return RedirectToAction("Index", "Home");
+        }
+
+        // Şifre Değiştirme Sayfası
+        [HttpGet]
+        [Authorize]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
+            try
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+                {
+                    return RedirectToAction("Login");
+                }
+
+                await _userService.ChangePasswordAsync(userId, dto);
+                
+                TempData["SuccessMessage"] = "Şifreniz başarıyla değiştirildi.";
+                return RedirectToAction("Profile");
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Şifre değiştirilirken bir hata oluştu.");
+                return View(dto);
+            }
+        }
+
+        // E-posta Güncelleme Sayfası
+        [HttpGet]
+        [Authorize]
+        public IActionResult UpdateEmail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateEmail(UpdateEmailDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
+            try
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+                {
+                    return RedirectToAction("Login");
+                }
+
+                var updatedUser = await _userService.UpdateEmailAsync(userId, dto);
+                
+                // E-posta değiştiğinde claims'i güncelle
+                await HttpContext.SignOutAsync("Cookies");
+                
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, updatedUser.Id.ToString()),
+                    new Claim(ClaimTypes.Name, updatedUser.UserName),
+                    new Claim(ClaimTypes.Email, updatedUser.Email)
+                };
+                
+                var identity = new ClaimsIdentity(claims, "Cookies");
+                var principal = new ClaimsPrincipal(identity);
+                
+                await HttpContext.SignInAsync("Cookies", principal, new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(60)
+                });
+                
+                TempData["SuccessMessage"] = "E-posta adresiniz başarıyla güncellendi.";
+                return RedirectToAction("Profile");
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(dto);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "E-posta güncellenirken bir hata oluştu.");
+                return View(dto);
+            }
         }
 
         // API Actions

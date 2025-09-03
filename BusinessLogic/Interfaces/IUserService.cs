@@ -17,5 +17,7 @@ namespace BusinessLogic.Interfaces
         Task<UserResponseDto> AuthenticateAsync(UserLoginDto dto);
         Task<UserResponseDto> UpdateUserAsync(int id, UserUpdateDto dto);
         Task<bool> DeleteUserAsync(int id);
+        Task<bool> ChangePasswordAsync(int userId, ChangePasswordDto dto);
+        Task<UserResponseDto> UpdateEmailAsync(int userId, UpdateEmailDto dto);
     }
 }

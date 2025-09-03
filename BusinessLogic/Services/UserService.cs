@@ -136,5 +136,65 @@ namespace BusinessLogic.Services
             await _userRepository.DeleteAsync(id);
             return true;
         }
+
+        public async Task<bool> ChangePasswordAsync(int userId, ChangePasswordDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.CurrentPassword)) 
+                throw new ArgumentException("Mevcut şifre gereklidir.");
+            if (string.IsNullOrWhiteSpace(dto.NewPassword)) 
+                throw new ArgumentException("Yeni şifre gereklidir.");
+            if (dto.NewPassword != dto.ConfirmNewPassword) 
+                throw new ArgumentException("Yeni şifre ve onayı eşleşmiyor.");
+
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null) 
+                throw new InvalidOperationException("Kullanıcı bulunamadı.");
+
+            // Mevcut şifreyi doğrula
+            bool isCurrentPasswordValid = BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, user.PasswordHash);
+            if (!isCurrentPasswordValid) 
+                throw new InvalidOperationException("Mevcut şifre hatalı.");
+
+            // Yeni şifreyi hash'le ve güncelle
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            await _userRepository.UpdateAsync(user);
+
+            return true;
+        }
+
+        public async Task<UserResponseDto> UpdateEmailAsync(int userId, UpdateEmailDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.NewEmail)) 
+                throw new ArgumentException("Yeni e-posta adresi gereklidir.");
+            if (string.IsNullOrWhiteSpace(dto.Password)) 
+                throw new ArgumentException("Şifre doğrulaması gereklidir.");
+
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null) 
+                throw new InvalidOperationException("Kullanıcı bulunamadı.");
+
+            // Şifreyi doğrula
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
+            if (!isPasswordValid) 
+                throw new InvalidOperationException("Şifre hatalı.");
+
+            // E-posta unique kontrolü
+            var existingUser = await _userRepository.GetByEmailAsync(dto.NewEmail);
+            if (existingUser != null && existingUser.Id != userId) 
+                throw new InvalidOperationException("Bu e-posta adresi zaten kullanılıyor.");
+
+            // E-postayı güncelle
+            user.Email = dto.NewEmail;
+            await _userRepository.UpdateAsync(user);
+
+            return new UserResponseDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.FullName,
+                Email = user.Email
+            };
+        }
     }
 }

@@ -82,8 +82,7 @@
               "RelativeToolTip": "UI\\Controllers\\InstallmentController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAxwBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T14:08:17.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T14:08:17.688Z"
             },
             {
               "$type": "Document",
@@ -103,12 +102,11 @@
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs*",
-              "RelativeToolTip": "DAL\\Context\\AppDbContext.cs*",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "DAL\\Context\\AppDbContext.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T11:16:05.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T11:16:05.578Z"
             },
             {
               "$type": "Document",
@@ -144,8 +142,7 @@
               "RelativeToolTip": "UI\\wwwroot\\css\\site.css",
               "ViewState": "AgIAAF4CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-20T14:55:33.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T14:55:33.247Z"
             },
             {
               "$type": "Document",
@@ -165,9 +162,9 @@
               "Title": "Profile.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Profile.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Profile.cshtml*",
-              "RelativeToolTip": "UI\\Views\\User\\Profile.cshtml*",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGwAAAAYAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Profile.cshtml",
+              "RelativeToolTip": "UI\\Views\\User\\Profile.cshtml",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAQwGwAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-20T12:58:00.226Z",
               "EditorCaption": ""
