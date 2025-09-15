@@ -74,7 +74,7 @@ namespace UI.Controllers
 
                 return View(viewModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Hata durumunda boş view model ile devam et
                 return View(new DashboardViewModel());

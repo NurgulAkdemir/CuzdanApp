@@ -105,6 +105,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IBalanceService, BalanceService>();
 builder.Services.AddScoped<IInstallmentService, InstallmentService>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 // JWT Service
 builder.Services.AddScoped<IJwtService, JwtService>();

@@ -394,6 +394,9 @@ body {
   color: white;
   position: relative;
   overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .hero-section::before {
@@ -553,17 +556,21 @@ body {
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .cta-section h2 {
-  color: #1f2937;
+  color: white;
   margin-bottom: 1rem;
   font-weight: bold;
 }
 
 .cta-section .lead {
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
   font-size: 1.2rem;
 }
@@ -574,7 +581,11 @@ body {
 
 /* Features Overview */
 .features-overview {
-  background: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .info-card {
@@ -582,16 +593,21 @@ body {
   padding: 40px 20px;
   border-radius: 15px;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .info-icon {
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -602,13 +618,13 @@ body {
 }
 
 .info-card h4 {
-  color: #1f2937;
+  color: white;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
 .info-card p {
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 

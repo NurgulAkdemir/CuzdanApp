@@ -313,6 +313,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.3.0, )"
             }
           },
           "imports": [

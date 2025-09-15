@@ -134,7 +134,6 @@ C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\scopedcss\bundle\UI.styles.css
-C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-uth5tap1dw.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\dmuzicriml-0xnpxp44eg.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\ba6spaxn4z-nclwyi8366.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\y5u1imhd89-4weum1d8i3.gz
@@ -533,3 +532,17 @@ C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\w2h1b0nkpu-j769idp4v6.
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\8xwyibt9sc-xzw0cte36n.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\12ypxw01qi-erk9wa5slh.gz
 C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\dnkyb477hc-5c5v55ciz3.gz
+C:\Users\NURGÜL\CuzdanApp\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-cfunu3fxpv.gz
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.barcodes.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.bouncy-castle-connector.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.forms.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.io.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.kernel.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.layout.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.pdfa.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.pdfua.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.sign.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.styledxmlparser.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.svg.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\itext.commons.dll
+C:\Users\NURGÜL\CuzdanApp\UI\bin\Debug\net9.0\Microsoft.DotNet.PlatformAbstractions.dll
