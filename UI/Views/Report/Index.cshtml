@@ -184,8 +184,8 @@
                         </h5>
                         @if (Model.Transactions.Any())
                         {
-                            <button class="btn btn-sm btn-outline-success" onclick="exportToExcel()">
-                                <i class="fas fa-file-excel me-1"></i>Excel'e Aktar
+                            <button class="btn btn-sm btn-outline-danger" onclick="exportToPdf()">
+                                <i class="fas fa-file-pdf me-1"></i>PDF İndir
                             </button>
                         }
                     </div>
@@ -278,33 +278,39 @@
     }
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 <script>
-    function exportToExcel() {
-        // Basit Excel export fonksiyonu
+    function exportToPdf() {
         const table = document.getElementById('transactionsTable');
-        const rows = Array.from(table.querySelectorAll('tr'));
-        
-        let csvContent = "data:text/csv;charset=utf-8,";
-        
-        rows.forEach(row => {
-            const cells = Array.from(row.querySelectorAll('th, td'));
-            const rowData = cells.map(cell => {
-                // Badge'leri temizle
-                const badge = cell.querySelector('.badge');
-                if (badge) {
-                    return badge.textContent.trim();
-                }
-                return cell.textContent.trim().replace(/,/g, ';');
-            });
-            csvContent += rowData.join(',') + '\n';
+        if (!table) return;
+
+        const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+        const body = Array.from(table.querySelectorAll('tbody tr')).map(tr =>
+            Array.from(tr.querySelectorAll('td')).map(td => {
+                const badge = td.querySelector('.badge');
+                const text = (badge ? badge.textContent : td.textContent) || '';
+                return text.trim().replace(/\s+/g, ' ');
+            })
+        );
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF('l', 'pt', 'a4');
+
+        doc.setFontSize(14);
+        doc.text('İşlem Raporu', 40, 32);
+
+        doc.autoTable({
+            head: [headers],
+            body: body,
+            startY: 50,
+            styles: { fontSize: 9, overflow: 'linebreak' },
+            headStyles: { fillColor: [33, 37, 41] },
+            columnStyles: { 5: { halign: 'right' } },
+            theme: 'striped',
+            margin: { left: 40, right: 40 }
         });
-        
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement('a');
-        link.setAttribute('href', encodedUri);
-        link.setAttribute('download', 'islem_raporu.csv');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+
+        doc.save('islem_raporu.pdf');
     }
 </script>
