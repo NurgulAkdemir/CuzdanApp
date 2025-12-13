@@ -106,9 +106,13 @@ builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IBalanceService, BalanceService>();
 builder.Services.AddScoped<IInstallmentService, InstallmentService>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<IAdminStatsService, AdminStatsService>();
 
 // JWT Service
 builder.Services.AddScoped<IJwtService, JwtService>();
+
+// Performance metrics
+builder.Services.AddSingleton<IPerformanceMetricsService, PerformanceMetricsService>();
 
 // FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
@@ -156,6 +160,9 @@ app.UseRouting();
 // Authentication ve Authorization middleware'lerini ekle
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Request timing middleware
+app.UseMiddleware<RequestTimingMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

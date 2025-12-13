@@ -52,7 +52,9 @@ namespace BusinessLogic.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
             };
         }
 
@@ -67,7 +69,9 @@ namespace BusinessLogic.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
             };
         }
 
@@ -85,7 +89,9 @@ namespace BusinessLogic.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
             };
         }
 
@@ -124,7 +130,9 @@ namespace BusinessLogic.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
             };
         }
 
@@ -193,8 +201,72 @@ namespace BusinessLogic.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
             };
+        }
+
+        public async Task<IEnumerable<UserResponseDto>> GetAdminsAsync()
+        {
+            var admins = await _userRepository.GetAdminsAsync();
+            return admins.Select(a => new UserResponseDto
+            {
+                Id = a.Id,
+                FirstName = a.FirstName,
+                LastName = a.LastName,
+                UserName = a.FullName,
+                Email = a.Email,
+                Role = a.Role.ToString(),
+                IsBanned = a.IsBanned
+            });
+        }
+
+        public async Task<bool> SetBanStatusAsync(int userId, bool isBanned)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null) return false;
+            user.IsBanned = isBanned;
+            await _userRepository.UpdateAsync(user);
+            return true;
+        }
+
+        public async Task<(IEnumerable<UserResponseDto> Items, int TotalCount)> QueryUsersAsync(
+            string? search,
+            string? role,
+            bool? isBanned,
+            string? sortBy,
+            bool sortDesc,
+            int page,
+            int pageSize)
+        {
+            var (items, total) = await _userRepository.QueryAsync(search, role, isBanned, sortBy, sortDesc, page, pageSize);
+            var dtos = items.Select(user => new UserResponseDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.FullName,
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
+            });
+            return (dtos, total);
+        }
+
+        public async Task<IEnumerable<UserResponseDto>> GetAllUsersAsync()
+        {
+            var users = await _userRepository.GetAllAsync();
+            return users.Select(user => new UserResponseDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.FullName,
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                IsBanned = user.IsBanned
+            });
         }
     }
 }

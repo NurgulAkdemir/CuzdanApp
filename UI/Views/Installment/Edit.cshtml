@@ -1,7 +1,7 @@
 @model Entity.DTO.Installment.InstallmentUpdateDto
 @{
     ViewData["Title"] = "Taksit Düzenle";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">

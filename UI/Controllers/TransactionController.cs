@@ -44,6 +44,16 @@ namespace UI.Controllers
                     CurrentBalance = currentBalance?.Amount ?? 0
                 };
 
+                // Rol bazlı layout seçimi
+                if (User.IsInRole("Admin"))
+                {
+                    ViewBag.Layout = "_LayoutAdmin";
+                }
+                else
+                {
+                    ViewBag.Layout = "_LayoutUser";
+                }
+
                 return View(viewModel);
             }
             catch (Exception)

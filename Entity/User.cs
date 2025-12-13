@@ -16,6 +16,7 @@ namespace Entity
 
         public bool EmailConfirmed { get; set; } = false;
         public UserRole Role { get; set; } = UserRole.User;
+        public bool IsBanned { get; set; } = false;
         public decimal Balance { get; set; } = 0m; // isteğe bağlı; alternatif: hesaplamayla elde et
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

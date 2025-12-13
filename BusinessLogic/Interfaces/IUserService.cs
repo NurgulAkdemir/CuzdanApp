@@ -19,5 +19,16 @@ namespace BusinessLogic.Interfaces
         Task<bool> DeleteUserAsync(int id);
         Task<bool> ChangePasswordAsync(int userId, ChangePasswordDto dto);
         Task<UserResponseDto> UpdateEmailAsync(int userId, UpdateEmailDto dto);
+        Task<IEnumerable<UserResponseDto>> GetAdminsAsync();
+        Task<bool> SetBanStatusAsync(int userId, bool isBanned);
+        Task<(IEnumerable<UserResponseDto> Items, int TotalCount)> QueryUsersAsync(
+            string? search,
+            string? role,
+            bool? isBanned,
+            string? sortBy,
+            bool sortDesc,
+            int page,
+            int pageSize);
+        Task<IEnumerable<UserResponseDto>> GetAllUsersAsync();
     }
 }

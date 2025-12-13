@@ -1,10 +1,11 @@
 @model UI.Models.TransactionReportViewModel
 @{
     ViewData["Title"] = "Raporlar";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">
+    
     <!-- Sayfa Başlığı -->
     <div class="row mb-4">
         <div class="col-12">

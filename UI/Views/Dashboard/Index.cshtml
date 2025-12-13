@@ -1,7 +1,7 @@
 @model UI.Models.DashboardViewModel
 @{
     ViewData["Title"] = "Dashboard";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">

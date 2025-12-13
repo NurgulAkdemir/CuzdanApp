@@ -1,7 +1,7 @@
 @model Entity.DTO.Balance.BalanceCreateDto
 @{
     ViewData["Title"] = "Yeni Bakiye Ekle";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">

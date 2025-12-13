@@ -43,6 +43,16 @@ namespace UI.Controllers
                     RecentTransactions = recentTransactions.OrderByDescending(t => t.TransactionDate).Take(10).ToList()
                 };
 
+                // Rol bazlı layout seçimi
+                if (User.IsInRole("Admin"))
+                {
+                    ViewBag.Layout = "_LayoutAdmin";
+                }
+                else
+                {
+                    ViewBag.Layout = "_LayoutUser";
+                }
+
                 return View(viewModel);
             }
             catch (Exception)

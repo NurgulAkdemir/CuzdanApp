@@ -26,6 +26,16 @@ namespace UI.Controllers
                 StartDate = DateTime.Now.AddMonths(-1),
                 EndDate = DateTime.Now
             };
+            // Rol bazlı layout seçimi
+            if (User.IsInRole("Admin"))
+            {
+                ViewBag.Layout = "_LayoutAdmin";
+            }
+            else
+            {
+                ViewBag.Layout = "_LayoutUser";
+            }
+
             return View(viewModel);
         }
 

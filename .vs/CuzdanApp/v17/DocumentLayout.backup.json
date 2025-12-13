@@ -104,7 +104,7 @@
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeToolTip": "DAL\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswC0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T11:16:05.578Z",
               "EditorCaption": ""
@@ -251,6 +251,16 @@
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-08-19T14:43:04.197Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 134,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

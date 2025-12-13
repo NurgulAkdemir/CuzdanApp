@@ -1,7 +1,7 @@
 @model Entity.Installment
 @{
     ViewData["Title"] = "Taksit Detayları";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">

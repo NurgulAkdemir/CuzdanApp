@@ -1,0 +1,495 @@
+@model UI.Models.AdminStatsViewModel
+@{
+    ViewData["Title"] = "Veri ve Rapor Yönetimi";
+    Layout = ViewBag.Layout ?? "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <!-- Sayfa Başlığı -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2><i class="fas fa-chart-bar me-2"></i>Veri ve Rapor Yönetimi</h2>
+                <small class="text-muted">Son güncelleme: @Model.SiteStats.LastUpdated.ToString("dd.MM.yyyy HH:mm")</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Genel Site İstatistikleri -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4 class="mb-3"><i class="fas fa-tachometer-alt me-2"></i>Genel Site İstatistikleri</h4>
+        </div>
+        
+        <div class="col-md-3 mb-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.TotalUsers</h4>
+                            <p class="card-text">Toplam Kullanıcı</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.ActiveUsers</h4>
+                            <p class="card-text">Aktif Kullanıcı</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-user-check fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.BannedUsers</h4>
+                            <p class="card-text">Banlanmış Kullanıcı</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-user-times fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.TotalTransactions</h4>
+                            <p class="card-text">Toplam İşlem</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-exchange-alt fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finansal İstatistikler -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.TotalTransactionVolume.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                            <p class="card-text">Toplam İşlem Hacmi</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-coins fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card bg-secondary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.TotalInstallments</h4>
+                            <p class="card-text">Toplam Taksit</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-calendar-check fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">@Model.SiteStats.TotalRemainingInstallments.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                            <p class="card-text">Kalan Taksit Tutarı</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-calendar-times fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İşlem Hacmi Analizi -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>İşlem Hacmi Analizi</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h4 id="stat-total-income" class="text-success">@Model.TransactionVolume.TotalIncome.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                                <p class="text-muted">Toplam Gelir</p>
+                                <small class="text-muted">@Model.TransactionVolume.IncomeCount işlem</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h4 id="stat-total-expense" class="text-danger">@Model.TransactionVolume.TotalExpense.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                                <p class="text-muted">Toplam Gider</p>
+                                <small class="text-muted">@Model.TransactionVolume.ExpenseCount işlem</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h4 id="stat-net-amount" class="text-primary">@Model.TransactionVolume.NetAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                                <p class="text-muted">Net Tutar</p>
+                                <small class="text-muted">Gelir - Gider</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h4 id="stat-avg-income" class="text-info">@Model.TransactionVolume.AverageIncome.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
+                                <p class="text-muted">Ortalama Gelir</p>
+                                <small class="text-muted">İşlem başına</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- En Çok İşlem Gören Kategoriler -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-tags me-2"></i>En Çok İşlem Gören Kategoriler</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.TopTransactionCategories.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th>Tür</th>
+                                        <th>İşlem Sayısı</th>
+                                        <th>Toplam Tutar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var category in Model.TopTransactionCategories.Take(5))
+                                    {
+                                        <tr>
+                                            <td>@category.Category</td>
+                                            <td>
+                                                <span class="badge @(category.TransactionType == "Income" ? "bg-success" : "bg-danger")">
+                                                    @(category.TransactionType == "Income" ? "Gelir" : "Gider")
+                                                </span>
+                                            </td>
+                                            <td>@category.TransactionCount</td>
+                                            <td>@category.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-chart-bar fa-2x text-muted mb-3"></i>
+                            <p class="text-muted">Henüz kategori verisi bulunmuyor</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- En Aktif Kullanıcılar -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-user-friends me-2"></i>En Aktif Kullanıcılar</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.ActiveUsers.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Kullanıcı</th>
+                                        <th>İşlem Sayısı</th>
+                                        <th>Toplam Tutar</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in Model.ActiveUsers.Take(5))
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <strong>@user.UserName</strong>
+                                                    <br>
+                                                    <small class="text-muted">@user.Email</small>
+                                                </div>
+                                            </td>
+                                            <td>@user.TransactionCount</td>
+                                            <td>@user.TotalTransactionAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
+                                            <td>
+                                                <span class="badge @(user.IsActive ? "bg-success" : "bg-warning")">
+                                                    @(user.IsActive ? "Aktif" : "Pasif")
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-users fa-2x text-muted mb-3"></i>
+                            <p class="text-muted">Henüz kullanıcı verisi bulunmuyor</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarih Aralığı Filtresi -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Tarih Aralığı Filtresi</h5>
+                </div>
+                <div class="card-body">
+                    <form id="dateFilterForm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="startDate" class="form-label">Başlangıç Tarihi</label>
+                                <input type="date" class="form-control" id="startDate" name="startDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="endDate" class="form-label">Bitiş Tarihi</label>
+                                <input type="date" class="form-control" id="endDate" name="endDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search me-2"></i>Filtrele
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearFilters()">
+                                        <i class="fas fa-times me-2"></i>Temizle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Tarih Bazlı Rapor</label>
+                                <div class="input-group">
+                                    <select id="period" class="form-select" style="max-width: 160px;">
+                                        <option value="daily">Günlük</option>
+                                        <option value="weekly">Haftalık</option>
+                                        <option value="monthly">Aylık</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline-primary" onclick="loadTimeSeries()">
+                                        <i class="fas fa-chart-area me-2"></i>Yükle
+                                    </button>
+                                </div>
+                                <div class="mt-3" id="timeseries-container"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Kategori Bazlı Harcama</label>
+                                <div>
+                                    <button type="button" class="btn btn-outline-warning" onclick="loadCategoryStats()">
+                                        <i class="fas fa-tags me-2"></i>Yükle
+                                    </button>
+                                </div>
+                                <div class="mt-3" id="category-container"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sistem Performans Raporu -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i>Sistem Performansı</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center" id="perf-cards">
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light"><div class="card-body"><div>Toplam İstek</div><h4 id="perf-total">-</h4></div></div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light"><div class="card-body"><div>Ort. Yanıt (ms)</div><h4 id="perf-avg">-</h4></div></div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light"><div class="card-body"><div>P95 (ms)</div><h4 id="perf-p95">-</h4></div></div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light"><div class="card-body"><div>P99 (ms)</div><h4 id="perf-p99">-</h4></div></div>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button class="btn btn-outline-secondary" onclick="loadPerformance()"><i class="fas fa-sync me-2"></i>Yenile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Form submit event
+            $('#dateFilterForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                var startDate = $('#startDate').val();
+                var endDate = $('#endDate').val();
+                
+                // AJAX ile veri çek
+                $.post('@Url.Action("GetTransactionVolume", "AdminStats")', {
+                    startDate: startDate,
+                    endDate: endDate
+                }, function(data) {
+                    // Sonuçları güncelle
+                    updateTransactionVolume(data);
+                });
+            });
+
+			// İlk yüklemede performans ve zaman serisi getir
+			loadPerformance();
+        });
+        
+        function clearFilters() {
+            $('#startDate').val('');
+            $('#endDate').val('');
+            
+            // Varsayılan verileri yükle
+            $.post('@Url.Action("GetTransactionVolume", "AdminStats")', {}, function(data) {
+                updateTransactionVolume(data);
+            });
+        }
+        
+        function updateTransactionVolume(data) {
+            // İşlem hacmi verilerini güncelle (hedefleri ID ile seç)
+            $('#stat-total-income').text(formatCurrency(data.totalIncome));
+            $('#stat-total-expense').text(formatCurrency(data.totalExpense));
+            $('#stat-net-amount').text(formatCurrency(data.netAmount));
+            $('#stat-avg-income').text(formatCurrency(data.averageIncome));
+        }
+
+		function loadTimeSeries() {
+			var startDate = $('#startDate').val();
+			var endDate = $('#endDate').val();
+			var period = $('#period').val();
+			$.post('@Url.Action("GetTransactionTimeSeries", "AdminStats")', {
+				period: period,
+				startDate: startDate,
+				endDate: endDate
+			}, function(data) {
+				renderTimeSeries(data);
+			});
+		}
+
+		function loadCategoryStats() {
+			var startDate = $('#startDate').val();
+			var endDate = $('#endDate').val();
+			$.post('@Url.Action("GetCategoryExpenseStats", "AdminStats")', {
+				startDate: startDate,
+				endDate: endDate
+			}, function(data) {
+				renderCategoryStats(data);
+			});
+		}
+
+		function loadPerformance() {
+			$.get('@Url.Action("GetSystemPerformance", "AdminStats")', function (data) {
+				$('#perf-total').text(data.totalRequests ?? '-');
+				$('#perf-avg').text((data.averageResponseMs ?? 0).toFixed(1));
+				$('#perf-p95').text((data.p95ResponseMs ?? 0).toFixed(1));
+				$('#perf-p99').text((data.p99ResponseMs ?? 0).toFixed(1));
+			});
+		}
+        
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('tr-TR', {
+                style: 'currency',
+                currency: 'TRY'
+            }).format(amount);
+        }
+
+		function renderTimeSeries(data) {
+			if (!Array.isArray(data) || data.length === 0) {
+				$('#timeseries-container').html('<div class="text-muted">Veri bulunamadı</div>');
+				return;
+			}
+			var rows = data.map(function(x){
+				return '<tr>'+
+					'<td>'+ (x.periodLabel || '') +'</td>'+
+					'<td class="text-success">'+ formatCurrency(x.totalIncome || 0) +'</td>'+
+					'<td class="text-danger">'+ formatCurrency(x.totalExpense || 0) +'</td>'+
+					'<td class="text-primary">'+ formatCurrency(x.netAmount || 0) +'</td>'+
+				'</tr>'; 
+			}).join('');
+			var html = '\n<table class="table table-sm">\n<thead><tr><th>Dönem</th><th>Gelir</th><th>Gider</th><th>Net</th></tr></thead>\n<tbody>' + rows + '</tbody></table>';
+			$('#timeseries-container').html(html);
+		}
+
+		function renderCategoryStats(data) {
+			if (!Array.isArray(data) || data.length === 0) {
+				$('#category-container').html('<div class="text-muted">Veri bulunamadı</div>');
+				return;
+			}
+			var rows = data.map(function(x){
+				return '<tr>'+
+					'<td>'+ (x.category || 'Diğer') +'</td>'+
+					'<td>'+ (x.transactionCount || 0) +'</td>'+
+					'<td>'+ formatCurrency(x.totalAmount || 0) +'</td>'+
+					'<td>'+ formatCurrency(x.averageAmount || 0) +'</td>'+
+				'</tr>'; 
+			}).join('');
+			var html = '\n<table class="table table-sm">\n<thead><tr><th>Kategori</th><th>İşlem</th><th>Toplam</th><th>Ortalama</th></tr></thead>\n<tbody>' + rows + '</tbody></table>';
+			$('#category-container').html(html);
+		}
+    </script>
+}

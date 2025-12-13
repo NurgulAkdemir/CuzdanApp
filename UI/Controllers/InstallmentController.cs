@@ -38,6 +38,16 @@ namespace UI.Controllers
                     Installments = installments.OrderByDescending(i => i.CreatedDate).ToList()
                 };
 
+                // Rol bazlı layout seçimi
+                if (User.IsInRole("Admin"))
+                {
+                    ViewBag.Layout = "_LayoutAdmin";
+                }
+                else
+                {
+                    ViewBag.Layout = "_LayoutUser";
+                }
+
                 return View(viewModel);
             }
             catch (Exception)

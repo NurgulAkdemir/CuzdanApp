@@ -47,6 +47,16 @@ namespace UI.Controllers
                 var user = await _userService.GetUserByIdAsync(userId);
                 if (user == null) return NotFound();
 
+                // Rol bazlı layout seçimi
+                if (User.IsInRole("Admin"))
+                {
+                    ViewBag.Layout = "_LayoutAdmin";
+                }
+                else
+                {
+                    ViewBag.Layout = "_LayoutUser";
+                }
+
                 return View(user);
             }
             catch
@@ -239,6 +249,12 @@ namespace UI.Controllers
                     return RedirectToAction("Login");
                 }
 
+                if (user.IsBanned)
+                {
+                    TempData["ErrorMessage"] = "Hesabınız banlanmıştır. Lütfen destek ile iletişime geçin.";
+                    return RedirectToAction("Login");
+                }
+
                 // JWT token oluştur
                 var token = _jwtService.GenerateToken(user.Id, user.UserName, user.Email);
                 
@@ -247,7 +263,8 @@ namespace UI.Controllers
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email)
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Role, user.Role ?? "User")
                 };
                 
                 var identity = new ClaimsIdentity(claims, "Cookies");

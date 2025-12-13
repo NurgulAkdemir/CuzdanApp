@@ -1,10 +1,11 @@
 @model UI.Models.InstallmentIndexViewModel
 @{
     ViewData["Title"] = "Taksitlerim";
-    Layout = "_LayoutApp";
+    Layout = ViewBag.Layout ?? "_LayoutUser";
 }
 
 <div class="container-fluid">
+    
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">

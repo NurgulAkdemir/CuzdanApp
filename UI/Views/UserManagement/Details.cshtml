@@ -1,0 +1,51 @@
+@model Entity.DTO.User.UserResponseDto
+@{
+    ViewData["Title"] = "Kullanıcı Detayı";
+}
+
+<h2 class="mb-3">Kullanıcı Detayı</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Ad</dt>
+            <dd class="col-sm-9">@Model.FirstName</dd>
+
+            <dt class="col-sm-3">Soyad</dt>
+            <dd class="col-sm-9">@Model.LastName</dd>
+
+            <dt class="col-sm-3">Ad Soyad</dt>
+            <dd class="col-sm-9">@Model.UserName</dd>
+
+            <dt class="col-sm-3">E-posta</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Rol</dt>
+            <dd class="col-sm-9">@Model.Role</dd>
+
+            <dt class="col-sm-3">Durum</dt>
+            <dd class="col-sm-9">@(Model.IsBanned ? "Banlı" : "Aktif")</dd>
+        </dl>
+
+        <div class="mt-3">
+            <a asp-action="Index" class="btn btn-secondary">Geri</a>
+            <form asp-action="Ban" method="post" class="d-inline">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-warning" @(Model.IsBanned ? "disabled" : null)>Banla</button>
+            </form>
+            <form asp-action="Unban" method="post" class="d-inline ms-1">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-success" @(!Model.IsBanned ? "disabled" : null)>Ban Kaldır</button>
+            </form>
+            <form asp-action="Delete" method="post" class="d-inline ms-1" onsubmit="return confirm('Bu kullanıcı silinsin mi?');">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger">Sil</button>
+            </form>
+        </div>
+    </div>
+ </div>
+
+
