@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\usermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\usermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\ui\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D265904-387F-433B-BEB3-0B5180003969}|UI\\UI.csproj|solutionrelative:ui\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|c:\\users\\nurg\u00FCl\\cuzdanapp\\dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AC57505-52E5-4215-A707-8AAD68D38BE0}|DAL\\DAL.csproj|solutionrelative:dal\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -69,12 +81,50 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 266,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 315,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "UI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "UI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T13:18:53.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserManagementController.cs",
+              "RelativeDocumentMoniker": "UI\\Controllers\\UserManagementController.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\UserManagementController.cs",
+              "RelativeToolTip": "UI\\Controllers\\UserManagementController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T12:25:50.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "UI\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "UI\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T12:25:17.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "InstallmentController.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Controllers\\InstallmentController.cs",
               "RelativeDocumentMoniker": "UI\\Controllers\\InstallmentController.cs",
@@ -86,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Transaction.cs",
               "RelativeDocumentMoniker": "Entity\\Transaction.cs",
@@ -98,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\DAL\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\Context\\AppDbContext.cs",
@@ -106,12 +156,11 @@
               "RelativeToolTip": "DAL\\Context\\AppDbContext.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAiwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T11:16:05.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T11:16:05.578Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Entity.csproj",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\Entity\\Entity.csproj",
               "RelativeDocumentMoniker": "Entity\\Entity.csproj",
@@ -123,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "UI\\wwwroot\\js\\site.js",
@@ -135,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "UI\\wwwroot\\css\\site.css",
@@ -147,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\Home\\Index.cshtml",
@@ -159,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Profile.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Profile.cshtml",
@@ -171,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "InstallmentService.cs",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\BusinessLogic\\Services\\InstallmentService.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Services\\InstallmentService.cs",
@@ -183,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Register.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Register.cshtml",
@@ -195,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\UI\\Views\\User\\Login.cshtml",
               "RelativeDocumentMoniker": "UI\\Views\\User\\Login.cshtml",
@@ -207,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "main.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\main.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\main.tsx",
@@ -219,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Login.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\pages\\Login.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\pages\\Login.tsx",
@@ -230,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "App.tsx",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\App.tsx",
               "RelativeDocumentMoniker": "frontend\\src\\App.tsx",
@@ -242,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\NURG\u00DCL\\CuzdanApp\\frontend\\src\\index.css",
               "RelativeDocumentMoniker": "frontend\\src\\index.css",
@@ -255,7 +304,7 @@
           ]
         },
         {
-          "DockedHeight": 134,
+          "DockedHeight": 85,
           "SelectedChildIndex": -1,
           "Children": [
             {
